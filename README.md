@@ -1,3 +1,5 @@
+    ---------------------------------------------------------------------------------------------------
+
 //deixar mais lento a mensagem
 
 public static void exibirMensagem(String mensagem) {
