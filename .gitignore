@@ -11,3 +11,5 @@
 /bin/
 *.iml
 *.idea
+/.vscode/
+.vscode
