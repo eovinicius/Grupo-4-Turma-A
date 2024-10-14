@@ -150,7 +150,7 @@ public class Game {
                 Jogar();
                 break;
             case 2:
-                Iniciar();
+                iniciar();
                 break;
             case 3:
                 System.out.println("Jogo finalizado");
