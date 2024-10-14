@@ -158,7 +158,7 @@ public class Game {
                     InterfaceInstrucoes();
                     break;
                 case 4:
-                    System.out.println("Jogo finalizado");
+                    System.out.println("Jogo finalizado.");
                     break;
                 default:
                     exibirMensagem(
