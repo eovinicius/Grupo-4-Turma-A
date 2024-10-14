@@ -100,7 +100,7 @@ public class Game {
     }
 
     public void InterfaceInstrucoes() throws InterruptedException {
-        int opcao = 0;
+        int opcao = 1;
         LimpaConsole();
 
         exibirMensagem("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
@@ -135,32 +135,38 @@ public class Game {
                 "inclusive letras maiúsculas e minúsculas.\n" +
                 "Portanto, muita atenção ao responder uma questão dissertativa, você precisará responder exatamente " +
                 "como colocaria em um código em uma IDE.");
-        exibirMensagemComPergunta(
-                "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
-                        +
-                        "O que você deseja fazer? Digite o número da opção desejada\n" +
-                        "1 - Jogar o RPG\n" +
-                        "2 - Voltar à interface inicial\n" +
-                        "3 - Sair do jogo");
-        
+
         do {
+            exibirMensagemComPergunta(
+                    "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
+                            +
+                            "O que você deseja fazer? Digite o número da opção desejada\n" +
+                            "1 - Jogar o RPG\n" +
+                            "2 - Voltar à interface inicial\n" +
+                            "3 - Rever as instruções\n" +
+                            "4 - Sair do jogo\n\n");
+
             opcao = Integer.parseInt(System.console().readLine());
             switch (opcao) {
-            case 1:
-                Jogar();
-                break;
-            case 2:
-                iniciar();
-                break;
-            case 3:
-                System.out.println("Jogo finalizado");
-                break;
-            default:
-                System.out.println("Opção inválida");
-                break;
-        }
-        } while (opcao < 1 && opcao > 3);
-        
+                case 1:
+                    Jogar();
+                    break;
+                case 2:
+                    iniciar();
+                    break;
+                case 3:
+                    InterfaceInstrucoes();
+                    break;
+                case 4:
+                    System.out.println("Jogo finalizado");
+                    break;
+                default:
+                    exibirMensagem(
+                            "A opção que você digitou não estava dentre as possíveis para escolha, ao pressionar ENTER você será redirecionado para a tela com as opções.");
+                    break;
+            }
+        } while (opcao < 1 || opcao > 4);
+
     }
 
     public void PerguntasArray() {
