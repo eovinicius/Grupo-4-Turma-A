@@ -72,8 +72,68 @@ public class Game {
 
     }
 
-    public void InterfaceInstrucoes() {
+    public void InterfaceInstrucoes() throws InterruptedException {
+        int opcao = 0;
+        LimpaConsole();
 
+        exibirMensagem("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
+                "e a partir de algumas escolhas o jogo pode tomar rumos diferentes a cada vez que for jogado. " +
+                "Seguem abaixo as principais instruções do jogo:\n\n" +
+                "Instrução número 1:\n" +
+                "\nAs mensagens serão demonstradas caractere por caractere. " +
+                "A todo momento que acabar os caracteres a serem demonstrados, pressione ENTER para continuar. " +
+                "(Realize o teste agora de como isso irá funcionar)");
+        exibirMensagem("Instrução número 2:\n" +
+                "\nA escolha do seu nome não interfere em nada no jogo, " +
+                "mas a da sua classe sim, ela será baseada na arma que você escolher. " +
+                "Cada uma delas dará algum benefício (isso será apresentado no próprio jogo), " +
+                "que pode facilitar certas partes do jogo e manter outras mais difíceis.");
+        exibirMensagem("Instrução número 3:\n" +
+                "\nDurante o desenvolvimento do jogo, você irá enfrentar criaturas místicas. " +
+                "Durante esses combates, você irá atacar e será atacado pela criatura. " +
+                "Um desvio ou acerto de ataque será contabilizado a partir de desafios propostos sobre a matéria 'Algoritmos e Programação I'. "
+                +
+                "Caso acerte a questão, irá dar certo para você; caso erre, irá dar certo para a criatura.");
+        exibirMensagem("Instrução número 4:\n" +
+                "\nSobre as questões, serão dois tipos: perguntas com alternativas e perguntas dissertativas. " +
+                "As dissertativas exigirão que você escreva, complete ou corrija algumas partes de códigos em Java " +
+                "(linguagem utilizada na matéria escolhida neste semestre).");
+        exibirMensagem("Instrução número 5:\n" +
+                "\nMUITA ATENÇÃO COM LETRAS MAIÚSCULAS E MINÚSCULAS.\n" +
+                "Nas questões alternativas você pode digitar uma letra maiúscula ou minúscula, exemplo 'd' ou 'D', " +
+                "o resultado será igual.\n" +
+                "Entretanto, em perguntas dissertativas, as questões serão relacionadas a código em Java " +
+                "(como já foi informado na instrução 4), e, nesta linguagem de programação, os comandos precisam ser exatamente iguais, "
+                +
+                "inclusive letras maiúsculas e minúsculas.\n" +
+                "Portanto, muita atenção ao responder uma questão dissertativa, você precisará responder exatamente " +
+                "como colocaria em um código em uma IDE.");
+        exibirMensagemComPergunta(
+                "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
+                        +
+                        "O que você deseja fazer? Digite o número da opção desejada\n" +
+                        "1 - Jogar o RPG\n" +
+                        "2 - Voltar à interface inicial\n" +
+                        "3 - Sair do jogo");
+        
+        do {
+            opcao = Integer.parseInt(System.console().readLine());
+            switch (opcao) {
+            case 1:
+                Jogar();
+                break;
+            case 2:
+                Iniciar();
+                break;
+            case 3:
+                System.out.println("Jogo finalizado");
+                break;
+            default:
+                System.out.println("Opção inválida");
+                break;
+        }
+        } while (opcao < 1 && opcao > 3);
+        
     }
 
     public void PerguntasArray() {
@@ -105,6 +165,17 @@ public class Game {
             Thread.sleep(10);
         }
         System.console().readLine();
+
+    }
+
+    public void exibirMensagemComPergunta(String mensagem) throws InterruptedException {
+        limparConsole();
+        for (char caractere : mensagem.toCharArray()) {
+            System.out.print(caractere);
+            System.out.flush();
+            Thread.sleep(10);
+        }
+
     }
 
     public void limparConsole() {
