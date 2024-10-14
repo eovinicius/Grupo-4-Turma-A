@@ -95,7 +95,20 @@ public class Game {
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
     }
 
-    public void InterfaceCreditos() {
+    public void InterfaceCreditos() throws InterruptedException {
+
+        exibirMensagem(
+                "Esse jogo foi desenvolvido no primeiro semestre do curso de Analise e Desenvolvimento de Sistemas\n" +
+                "Para ajudar estudantes na area com dificuldade no aprendizado\n" +
+                "Feito na diciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
+
+        exibirMensagem(
+                "Pelos alunos: \n" +
+                        "Gabriel Lins\n" +
+                           "Gustavo Patriota\n" +
+                                 "Lucas Freitas\n" +
+                                       "Renan Telo\n" +
+                                           "Vinicius Oliveira");
 
     }
 
