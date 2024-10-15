@@ -13,3 +13,5 @@
 *.idea
 /.vscode/
 .vscode
+/.out
+/out
