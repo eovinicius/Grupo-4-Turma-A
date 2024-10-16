@@ -36,79 +36,80 @@ public class Game {
         String armaEscolhida;
         int vida = 3;
 
-        exibirMensagem(
-                "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino. Qual é o seu nome? ");
+        Print(
+                "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino.",
+                "Qual é o seu nome? ");
 
         nomeJogador = System.console().readLine().toUpperCase();
-        exibirMensagem("O rei Syntaxius: " + nomeJogador
+        Print("O rei Syntaxius: " + nomeJogador
                 + ", O Debugger eu convoco você para uma missão de extrema importância. O Bug Supremo despertou e está causando o caos em Algoritmópolis. Você é a única esperança do reino. Derrote o Bug Supremo e traga a paz de volta para o nosso reino!");
-        exibirMensagem(
+        Print(
                 "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo: ");
 
         do {
-            exibirMensagemComPergunta("Escolha um item para levar consigo: \n" +
-                    "1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
+            Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                     "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
-                    "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)");
+                    "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)\n",
+                    "Escolha um item para levar consigo... ");
 
-             armaEscolhida = System.console().readLine();
+            armaEscolhida = System.console().readLine();
 
             switch (armaEscolhida) {
                 case "1":
-                    exibirMensagem(
+                    Print(
                             "Você escolheu a Espada de Ferro. Que ela seja afiada o suficiente para cortar as criaturas de Arrays do Bug Supremo!");
                     break;
                 case "2":
-                    exibirMensagem(
+                    Print(
                             "Você escolheu o Cajado de Madeira. Que ele seja resistente o suficiente para enfrentar as criaturas de Estruturas de Repetição do Bug Supremo!");
                     break;
                 case "3":
-                    exibirMensagem(
+                    Print(
                             "Você escolheu o Arco de Pinho. Que ele seja preciso o suficiente para acertar as criaturas de Estruturas de Decisão do Bug Supremo!");
                     break;
                 default:
-                    exibirMensagemComPergunta("Opção inválida. Escolha novamente.");
+                    Print("Opção inválida. Escolha novamente.");
                     break;
             }
 
         } while (!(armaEscolhida.equals("1") || armaEscolhida.equals("2") || armaEscolhida.equals("3")));
 
-        exibirMensagem(
+        Print(
                 "Após isso, provando sua lealdade ao reino, você junta tudo que julga como necessário para esta missão, saindo logo na manhã do dia seguinte para ir em busca do ser que está colocando seu reino a beira do desmoranamento. ");
 
-        exibirMensagem(
+        Print(
                 "Após caminhar por quatro horas ininterruptas pelas vastas planícies de Algoritmópolis, você começa a notar que o terreno ao seu redor está mudando. Os dados, antes organizados em estruturas claras, começam a desmoronar, criando montanhas de informações sem ordem. Quando começa a prestar mais atenção nos dados que estão desorganizados ao seu redor, percebe que se tratam de dados relacioados a repetições. Depois de alguns poucos minutos em uma grande desordem chega uma criatura mística gigantesca, o Dragão dos Loops e, para sua surpresa, apesar de se tratar de uma criatura, ele fala: ");
 
-        exibirMensagem(
+        Print(
                 "Dragão dos loops: Eu sou o começo e o fim, mas meu ciclo nunca termina! Tolos entram aqui apenas para rodar eternamente. Sua jornada termina agora! - Disse o dragão milésimos antes de soltar uma rajada de fogo em sua direção");
 
-        exibirMensagem(
+        Print(
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
 
         // logica da batalha
         PerguntasArray();
 
-        exibirMensagem(
+        Print(
                 "Depois de ter conseguido derrotar uma das poderosas criaturas que o bug supremo controlava, você decide tirar o restante do dia para descansar, pois ela te levou a sua exaustão, de maneira na qual isso acaba se tornando necessário.");
 
-        exibirMensagem(
+        Print(
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
     }
 
     public void InterfaceCreditos() throws InterruptedException {
 
-        exibirMensagem(
+        Print(
                 "Esse jogo foi desenvolvido no primeiro semestre do curso de Analise e Desenvolvimento de Sistemas\n" +
-                "Para ajudar estudantes na area com dificuldade no aprendizado\n" +
-                "Feito na diciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
+                        "Para ajudar estudantes na area com dificuldade no aprendizado\n" +
+                        "Feito na diciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
 
-        exibirMensagem(
+        Print(
                 "Pelos alunos: \n" +
                         "Gabriel Lins\n" +
-                           "Gustavo Patriota\n" +
-                                 "Lucas Freitas\n" +
-                                       "Renan Telo\n" +
-                                           "Vinicius Oliveira");
+                        "Gustavo Patriota\n" +
+                        "Lucas Freitas\n" +
+                        "Renan Telo\n" +
+                        "Vinicius Oliveira");
 
     }
 
@@ -116,29 +117,29 @@ public class Game {
         String opcao = "";
         LimpaConsole();
 
-        exibirMensagem("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
+        Print("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
                 "e a partir de algumas escolhas o jogo pode tomar rumos diferentes a cada vez que for jogado. " +
                 "Seguem abaixo as principais instruções do jogo:\n\n" +
                 "Instrução número 1:\n" +
                 "\nAs mensagens serão demonstradas caractere por caractere. " +
                 "A todo momento que acabar os caracteres a serem demonstrados, pressione ENTER para continuar. " +
                 "(Realize o teste agora de como isso irá funcionar)");
-        exibirMensagem("Instrução número 2:\n" +
+        Print("Instrução número 2:\n" +
                 "\nA escolha do seu nome não interfere em nada no jogo, " +
                 "mas a da sua classe sim, ela será baseada na arma que você escolher. " +
                 "Cada uma delas dará algum benefício (isso será apresentado no próprio jogo), " +
                 "que pode facilitar certas partes do jogo e manter outras mais difíceis.");
-        exibirMensagem("Instrução número 3:\n" +
+        Print("Instrução número 3:\n" +
                 "\nDurante o desenvolvimento do jogo, você irá enfrentar criaturas místicas. " +
                 "Durante esses combates, você irá atacar e será atacado pela criatura. " +
                 "Um desvio ou acerto de ataque será contabilizado a partir de desafios propostos sobre a matéria 'Algoritmos e Programação I'. "
                 +
                 "Caso acerte a questão, irá dar certo para você; caso erre, irá dar certo para a criatura.");
-        exibirMensagem("Instrução número 4:\n" +
+        Print("Instrução número 4:\n" +
                 "\nSobre as questões, serão dois tipos: perguntas com alternativas e perguntas dissertativas. " +
                 "As dissertativas exigirão que você escreva, complete ou corrija algumas partes de códigos em Java " +
                 "(linguagem utilizada na matéria escolhida neste semestre).");
-        exibirMensagem("Instrução número 5:\n" +
+        Print("Instrução número 5:\n" +
                 "\nMUITA ATENÇÃO COM LETRAS MAIÚSCULAS E MINÚSCULAS.\n" +
                 "Nas questões alternativas você pode digitar uma letra maiúscula ou minúscula, exemplo 'd' ou 'D', " +
                 "o resultado será igual.\n" +
@@ -150,7 +151,7 @@ public class Game {
                 "como colocaria em um código em uma IDE.");
 
         do {
-            exibirMensagemComPergunta(
+            Print(
                     "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
                             +
                             "O que você deseja fazer? Digite o número da opção desejada\n" +
@@ -174,7 +175,7 @@ public class Game {
                     System.out.println("Jogo finalizado.");
                     break;
                 default:
-                    exibirMensagem(
+                    Print(
                             "A opção que você digitou não estava dentre as possíveis para escolha, ao pressionar ENTER você será redirecionado para a tela com as opções.");
                     break;
             }
@@ -199,7 +200,7 @@ public class Game {
         System.out.flush();
     }
 
-    public void exibirMensagem(String mensagem) throws InterruptedException {
+    public void Print(String mensagem) throws InterruptedException {
         limparConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
@@ -210,14 +211,19 @@ public class Game {
 
     }
 
-    public void exibirMensagemComPergunta(String mensagem) throws InterruptedException {
+    public void Print(String mensagem, String pergunta) throws InterruptedException {
         limparConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
             System.out.flush();
-            Thread.sleep(10);
+            Thread.sleep(5);
         }
-
+        System.console().readLine();
+        for (char caractere : pergunta.toCharArray()) {
+            System.out.print(caractere);
+            System.out.flush();
+            Thread.sleep(5);
+        }
     }
 
     public void limparConsole() {
