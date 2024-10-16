@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Collections;
 
 public class Game {
     public void iniciar() throws InterruptedException {
@@ -44,13 +47,13 @@ public class Game {
         Print("O rei Syntaxius: " + nomeJogador
                 + ", O Debugger eu convoco você para uma missão de extrema importância. O Bug Supremo despertou e está causando o caos em Algoritmópolis. Você é a única esperança do reino. Derrote o Bug Supremo e traga a paz de volta para o nosso reino!");
         Print(
-                "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo... ");
+                "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo: ");
 
         do {
             Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                     "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
                     "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
-                    "Escolha um item para levar consigo:");
+                    "Escolha um item para levar consigo: ");
 
             armaEscolhida = System.console().readLine();
 
@@ -87,7 +90,10 @@ public class Game {
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
 
         // logica da batalha
-        PerguntasArray();
+        if(!PerguntasArray()){
+            vida--;
+
+        }
 
         Print(
                 "Depois de ter conseguido derrotar uma das poderosas criaturas que o bug supremo controlava, você decide tirar o restante do dia para descansar, pois ela te levou a sua exaustão, de maneira na qual isso acaba se tornando necessário.");
@@ -183,8 +189,71 @@ public class Game {
 
     }
 
-    public void PerguntasArray() {
+    public boolean PerguntasArray() throws InterruptedException{
+        Random random = new Random();
+        int perguntaAleatoria = 0;
+        String pergunta = "";
+        ArrayList<String> Alternativas = new ArrayList<String>();
+        String AlternativaCerta = "";
+        perguntaAleatoria = 1;
+        
+        switch(perguntaAleatoria){
+            case 1:
+                pergunta = "daledale";
+                Alternativas.add("1");
+                Alternativas.add("2");
+                Alternativas.add("3");
+                Alternativas.add("4");
+                Alternativas.add("5");
+                AlternativaCerta = "1";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+                
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                
+        }
 
+        return false;
+    }
+
+    public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta) throws InterruptedException{
+            Print(pergunta);
+            Collections.shuffle(Alternativas);
+
+            if (Alternativas.get(0).equals(AlternativaCerta)){
+                AlternativaCerta = "a";
+            }   else if (Alternativas.get(1).equals(AlternativaCerta)){
+                AlternativaCerta = "b";
+            }   else if (Alternativas.get(2).equals(AlternativaCerta)){
+                AlternativaCerta = "c";
+            }   else if (Alternativas.get(3).equals(AlternativaCerta)){
+                AlternativaCerta = "d";
+            }   else if (Alternativas.get(4).equals(AlternativaCerta)){
+                AlternativaCerta = "e";
+            }
+
+            Print("A - " + Alternativas.get(0) + "\n" +
+                  "B - " + Alternativas.get(1) + "\n" +
+                  "C - " + Alternativas.get(2) + "\n" +
+                  "D - " + Alternativas.get(3) + "\n" +
+                  "E - " + Alternativas.get(4), "Digite agora a alternativa que você acha que é correta:\n\n");
+            
+            String alternativaEscolhida = System.console().readLine();
+
+            if (alternativaEscolhida.toLowerCase().equals(AlternativaCerta)){
+                return true;
+            }
+
+            return false;
+
+        
     }
 
     public void PerguntasCondicionais() {
