@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Game {
     public void iniciar() throws InterruptedException {
         while (true) {
@@ -32,7 +34,7 @@ public class Game {
 
     public void Jogar() throws InterruptedException {
         String nomeJogador;
-        int armaEscolhida;
+        String armaEscolhida;
         int vida = 3;
 
         exibirMensagem(
@@ -45,33 +47,32 @@ public class Game {
                 "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo: ");
 
         do {
-            exibirMensagem("Escolha um item para levar consigo: \n" +
+            exibirMensagemComPergunta("Escolha um item para levar consigo: \n" +
                     "1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                     "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
                     "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)");
 
-            armaEscolhida = Integer.parseInt(System.console().readLine());
+             armaEscolhida = System.console().readLine();
 
             switch (armaEscolhida) {
-                case 1:
+                case "1":
                     exibirMensagem(
                             "Você escolheu a Espada de Ferro. Que ela seja afiada o suficiente para cortar as criaturas de Arrays do Bug Supremo!");
                     break;
-                case 2:
+                case "2":
                     exibirMensagem(
                             "Você escolheu o Cajado de Madeira. Que ele seja resistente o suficiente para enfrentar as criaturas de Estruturas de Repetição do Bug Supremo!");
                     break;
-                case 3:
+                case "3":
                     exibirMensagem(
                             "Você escolheu o Arco de Pinho. Que ele seja preciso o suficiente para acertar as criaturas de Estruturas de Decisão do Bug Supremo!");
                     break;
                 default:
-                    exibirMensagem("Opção inválida. Escolha novamente.");
-                    armaEscolhida = 0;
+                    exibirMensagemComPergunta("Opção inválida. Escolha novamente.");
                     break;
             }
 
-        } while (armaEscolhida < 1 || armaEscolhida > 3);
+        } while (!(armaEscolhida.equals("1") || armaEscolhida.equals("2") || armaEscolhida.equals("3")));
 
         exibirMensagem(
                 "Após isso, provando sua lealdade ao reino, você junta tudo que julga como necessário para esta missão, saindo logo na manhã do dia seguinte para ir em busca do ser que está colocando seu reino a beira do desmoranamento. ");
