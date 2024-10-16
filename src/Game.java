@@ -196,7 +196,7 @@ public class Game {
         ArrayList<String> Alternativas = new ArrayList<String>();
         String AlternativaCerta = "";
         perguntaAleatoria = 1;
-        
+
         switch(perguntaAleatoria){
             case 1:
                 pergunta = "daledale";
@@ -224,7 +224,6 @@ public class Game {
     }
 
     public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta) throws InterruptedException{
-            Print(pergunta);
             Collections.shuffle(Alternativas);
 
             if (Alternativas.get(0).equals(AlternativaCerta)){
@@ -238,8 +237,8 @@ public class Game {
             }   else if (Alternativas.get(4).equals(AlternativaCerta)){
                 AlternativaCerta = "e";
             }
-
-            Print("A - " + Alternativas.get(0) + "\n" +
+            
+            Print(pergunta + "\n\nA - " + Alternativas.get(0) + "\n" +
                   "B - " + Alternativas.get(1) + "\n" +
                   "C - " + Alternativas.get(2) + "\n" +
                   "D - " + Alternativas.get(3) + "\n" +
