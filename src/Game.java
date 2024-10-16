@@ -50,7 +50,7 @@ public class Game {
             Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                     "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
                     "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)\n",
-                    "Escolha um item para levar consigo... ");
+                    "Escolha um item para levar consigo: ");
 
             armaEscolhida = System.console().readLine();
 
@@ -218,7 +218,7 @@ public class Game {
             System.out.flush();
             Thread.sleep(5);
         }
-        System.console().readLine();
+        System.out.println();
         for (char caractere : pergunta.toCharArray()) {
             System.out.print(caractere);
             System.out.flush();
