@@ -44,13 +44,13 @@ public class Game {
         Print("O rei Syntaxius: " + nomeJogador
                 + ", O Debugger eu convoco você para uma missão de extrema importância. O Bug Supremo despertou e está causando o caos em Algoritmópolis. Você é a única esperança do reino. Derrote o Bug Supremo e traga a paz de volta para o nosso reino!");
         Print(
-                "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo: ");
+                "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo... ");
 
         do {
             Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                     "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
                     "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
-                    "Escolha um item para levar consigo: ");
+                    "Escolha um item para levar consigo:");
 
             armaEscolhida = System.console().readLine();
 
