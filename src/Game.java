@@ -113,7 +113,7 @@ public class Game {
     }
 
     public void InterfaceInstrucoes() throws InterruptedException {
-        int opcao = 1;
+        String opcao = "";
         LimpaConsole();
 
         exibirMensagem("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
@@ -159,18 +159,18 @@ public class Game {
                             "3 - Rever as instruções\n" +
                             "4 - Sair do jogo\n\n");
 
-            opcao = Integer.parseInt(System.console().readLine());
+            opcao = System.console().readLine();
             switch (opcao) {
-                case 1:
+                case "1":
                     Jogar();
                     break;
-                case 2:
+                case "2":
                     iniciar();
                     break;
-                case 3:
+                case "3":
                     InterfaceInstrucoes();
                     break;
-                case 4:
+                case "4":
                     System.out.println("Jogo finalizado.");
                     break;
                 default:
@@ -178,7 +178,7 @@ public class Game {
                             "A opção que você digitou não estava dentre as possíveis para escolha, ao pressionar ENTER você será redirecionado para a tela com as opções.");
                     break;
             }
-        } while (opcao < 1 || opcao > 4);
+        } while (!(opcao.equals("1") || opcao.equals("2") || opcao.equals("3") || opcao.equals("4")));
 
     }
 
