@@ -93,24 +93,8 @@ public class Game {
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
 
         // logica da batalha
-            do {
-                boolean eCorreta = PerguntasArray();
-                if (!eCorreta) {
-                    Print("Voce tomou o golpe");
-                    vida--;
-                } else if (armaEscolhida.equals("1")) {
-                    Print("Voce acertou o golpe");
-                    vidaDragao = vidaDragao - 1.5;
-                } else {
-                    Print("Voce acertou o golpe");
-                    vidaDragao = vidaDragao - 1;
-                }
-            }while (vida > 0 && vidaDragao > 0);
 
-            if (vida == 0) {
-                Print("Voce morreu");
-                return;
-            }
+
 
         Print(
                 "Depois de ter conseguido derrotar uma das poderosas criaturas que o bug supremo controlava, você decide tirar o restante do dia para descansar, pois ela te levou a sua exaustão, de maneira na qual isso acaba se tornando necessário.");
