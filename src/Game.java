@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
+import java.util.Random;
 
 public class Game {
     public void iniciar() throws InterruptedException {
@@ -84,7 +85,7 @@ public class Game {
                 "Após caminhar por quatro horas ininterruptas pelas vastas planícies de Algoritmópolis, você começa a notar que o terreno ao seu redor está mudando. Os dados, antes organizados em estruturas claras, começam a desmoronar, criando montanhas de informações sem ordem. Quando começa a prestar mais atenção nos dados que estão desorganizados ao seu redor, percebe que se tratam de dados relacioados a repetições. Depois de alguns poucos minutos em uma grande desordem chega uma criatura mística gigantesca, o Dragão dos Loops e, para sua surpresa, apesar de se tratar de uma criatura, ele fala: ");
 
         Print(
-                "Dragão dos loops: Eu sou o começo e o fim, mas meu ciclo nunca termina! Tolos entram aqui apenas para rodar eternamente. Sua jornada termina agora! - Disse o dragão milésimos antes de soltar uma rajada de fogo em sua direção");
+                "Dragão dos Arrays: Seus olhos brilham com o caos de índices infinitos enquanto suas garras afiadas procuram destruir toda lógica. Prepare-se, pois cada erro será punido com um ataque fatal!");
 
         Print(
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
@@ -199,24 +200,138 @@ public class Game {
 
         switch(perguntaAleatoria){
             case 1:
-                pergunta = "";
-                Alternativas.add("");
-                Alternativas.add("");
-                Alternativas.add("");
-                Alternativas.add("");
-                Alternativas.add("");
-                AlternativaCerta = "1";
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "int[] arr = {10, 20, 30};" +
+                        "System.out.println(arr[arr.length - 1]);";
+
+                Alternativas.add("10");
+                Alternativas.add("20");
+                Alternativas.add("30");
+                Alternativas.add("40");
+                Alternativas.add("Erro de execução;");
+                AlternativaCerta = "30";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
                 
             case 2:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "int[] arr = {1, 3, 5, 7};" +
+                        "System.out.println(arr[0] + arr[2]);";
+
+                Alternativas.add("1");
+                Alternativas.add("4");
+                Alternativas.add("6");
+                Alternativas.add("8");
+                Alternativas.add("10");
+                AlternativaCerta = "6";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 3:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "int[] arr = {1, 3, 5, 7};" +
+                        "String[] array = {\"1\",\"3\",\"5\",\"7\"}" +
+                        "System.out.println(arr[0] + arr[2]);";
+
+                Alternativas.add("1");
+                Alternativas.add("4");
+                Alternativas.add("6");
+                Alternativas.add("8");
+                Alternativas.add("Erro de compilacao");
+                AlternativaCerta = "Erro de compilacao";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 4:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "String[] arr = {1, 3, 5, 7};" +
+                        "String[] array = {\"1\",\"3\",\"5\",\"7\"};" +
+                        "System.out.println(arr[0] + array[2]);";
+
+                Alternativas.add("15");
+                Alternativas.add("6");
+                Alternativas.add("12");
+                Alternativas.add("8");
+                Alternativas.add("Erro de compilacao");
+                AlternativaCerta = "6";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 5:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "List<String> items = new ArrayList<>();" +
+                        "items.add(\"Caneta\");" +
+                        "items.add(\"Lapis\");" +
+                        "items.add(\"Borracha\");" +
+                        "items.remove(1);" +
+                        "System.out.println(items);";
+
+                Alternativas.add("[Caneta, Lapis, Borracha]");
+                Alternativas.add("[Caneta, Borracha]");
+                Alternativas.add("[Lapis, Borracha]");
+                Alternativas.add("[Caneta, Borracha, Lapis]");
+                Alternativas.add("Lança uma IndexOutOfBoundsException");
+                AlternativaCerta = "6";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 6:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "String[] animals = {\"gato\", \"cachorro\", \"passaro\"};" +
+                        "System.out.println(Arrays.toString(animals));";
+
+                Alternativas.add("gato cachorro passaro");
+                Alternativas.add("gato, cachorro, passaro");
+                Alternativas.add("[gato, cachorro, passaro]");
+                Alternativas.add("[\"gato\", \"cachorro\", \"passaro\"]");
+                Alternativas.add("Arrays.toString(animals)");
+                AlternativaCerta = "[gato, cachorro, passaro]";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 7:
+                pergunta = "Como você inicializa um array de inteiros com os valores 10, 20 e 30?\n";
+
+                Alternativas.add("int[] arr = {10, 20, 30};");
+                Alternativas.add("int[] arr = new int[3](10, 20, 30);");
+                Alternativas.add("int[] arr = new int[3]{10, 20, 30};");
+                Alternativas.add("int arr[] = (10, 20, 30);");
+                Alternativas.add("int[] arr = {10, 20, 30}");
+                AlternativaCerta = "int[] arr = {10, 20, 30};";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 8:
+                pergunta = "Como acessar o terceiro elemento de um array chamado nums?\n";
+
+                Alternativas.add("nums(3)");
+                Alternativas.add("nums[3]");
+                Alternativas.add("nums[2]");
+                Alternativas.add("nums.get(2)");
+                Alternativas.add("nums[4]");
+                AlternativaCerta = "nums[2]";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 9:
+                pergunta = "Qual a forma certa para declarar um array de inteiros em Java?\n";
+
+                Alternativas.add("int[] arr = new int[5];");
+                Alternativas.add("int arr = new [5]int;");
+                Alternativas.add("int arr[] = new array(5);");
+                Alternativas.add("array arr = new int[5];");
+                Alternativas.add("ArrayList<Integer> array = new Array<Integer>;");
+                AlternativaCerta = "int[] arr = new int[5];";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
             case 10:
+                pergunta = "O que acontece quando você tenta acessar um índice de array que está fora dos limites em Java?\n";
+
+                Alternativas.add("O compilador gera um erro de compilação.");
+                Alternativas.add("O valor padrão do tipo do array é retornado.");
+                Alternativas.add("Uma ArrayIndexOutOfBoundsException é lançada em tempo de execução.");
+                Alternativas.add("O programa é finalizado imediatamente sem exceções.");
+                Alternativas.add("O array cria automaticamente um novo elemento para esse índice.");
+                AlternativaCerta = "Uma ArrayIndexOutOfBoundsException é lançada em tempo de execução.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
                 
         }
 
@@ -248,10 +363,9 @@ public class Game {
 
             if (alternativaEscolhida.toLowerCase().equals(AlternativaCerta)){
                 return true;
+            } else {
+                return false;
             }
-
-            return false;
-
         
     }
 
