@@ -35,7 +35,7 @@ public class Game {
         }
     }
 
-    public void Jogar() throws InterruptedException {
+    public void Jogar() throws InterruptedException, RuntimeException {
         String nomeJogador;
         String armaEscolhida;
         int vida = 3;
@@ -202,7 +202,7 @@ public class Game {
             case 1:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
-                        "int[] arr = {10, 20, 30};" +
+                        "int[] arr = {10, 20, 30};\n" +
                         "System.out.println(arr[arr.length - 1]);";
 
                 Alternativas.add("10");
@@ -216,7 +216,7 @@ public class Game {
             case 2:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
-                        "int[] arr = {1, 3, 5, 7};" +
+                        "int[] arr = {1, 3, 5, 7};\n" +
                         "System.out.println(arr[0] + arr[2]);";
 
                 Alternativas.add("1");
@@ -230,8 +230,8 @@ public class Game {
             case 3:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
-                        "int[] arr = {1, 3, 5, 7};" +
-                        "String[] array = {\"1\",\"3\",\"5\",\"7\"}" +
+                        "int[] arr = {1, 3, 5, 7};\n" +
+                        "String[] array = {\"1\",\"3\",\"5\",\"7\"}\n" +
                         "System.out.println(arr[0] + arr[2]);";
 
                 Alternativas.add("1");
@@ -245,8 +245,8 @@ public class Game {
             case 4:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
-                        "String[] arr = {1, 3, 5, 7};" +
-                        "String[] array = {\"1\",\"3\",\"5\",\"7\"};" +
+                        "String[] arr = {1, 3, 5, 7};\n" +
+                        "String[] array = {\"1\",\"3\",\"5\",\"7\"};\n" +
                         "System.out.println(arr[0] + array[2]);";
 
                 Alternativas.add("15");
@@ -260,11 +260,11 @@ public class Game {
             case 5:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
-                        "List<String> items = new ArrayList<>();" +
-                        "items.add(\"Caneta\");" +
-                        "items.add(\"Lapis\");" +
-                        "items.add(\"Borracha\");" +
-                        "items.remove(1);" +
+                        "List<String> items = new ArrayList<>();\n" +
+                        "items.add(\"Caneta\");\n" +
+                        "items.add(\"Lapis\");\n" +
+                        "items.add(\"Borracha\");\n" +
+                        "items.remove(1);\n" +
                         "System.out.println(items);";
 
                 Alternativas.add("[Caneta, Lapis, Borracha]");
@@ -281,11 +281,11 @@ public class Game {
                         "String[] animals = {\"gato\", \"cachorro\", \"passaro\"};" +
                         "System.out.println(Arrays.toString(animals));";
 
-                Alternativas.add("gato cachorro passaro");
-                Alternativas.add("gato, cachorro, passaro");
-                Alternativas.add("[gato, cachorro, passaro]");
-                Alternativas.add("[\"gato\", \"cachorro\", \"passaro\"]");
-                Alternativas.add("Arrays.toString(animals)");
+                Alternativas.add("gato cachorro passaro\n");
+                Alternativas.add("gato, cachorro, passaro\n");
+                Alternativas.add("[gato, cachorro, passaro]\n");
+                Alternativas.add("[\"gato\", \"cachorro\", \"passaro\"]\n");
+                Alternativas.add("Arrays.toString(animals)\n");
                 AlternativaCerta = "[gato, cachorro, passaro]";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
