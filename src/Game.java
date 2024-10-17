@@ -195,16 +195,16 @@ public class Game {
         String pergunta = "";
         ArrayList<String> Alternativas = new ArrayList<String>();
         String AlternativaCerta = "";
-        perguntaAleatoria = 1;
+        perguntaAleatoria = random.nextInt(10) + 1;
 
         switch(perguntaAleatoria){
             case 1:
-                pergunta = "daledale";
-                Alternativas.add("1");
-                Alternativas.add("2");
-                Alternativas.add("3");
-                Alternativas.add("4");
-                Alternativas.add("5");
+                pergunta = "";
+                Alternativas.add("");
+                Alternativas.add("");
+                Alternativas.add("");
+                Alternativas.add("");
+                Alternativas.add("");
                 AlternativaCerta = "1";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
                 
