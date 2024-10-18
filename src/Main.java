@@ -8,6 +8,6 @@ public class Main {
             Thread.sleep(4000);
             game.iniciar();
         }
-        
+
     }
 }

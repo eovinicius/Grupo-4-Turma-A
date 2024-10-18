@@ -54,8 +54,8 @@ public class Game {
 
         do {
             Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
-                    "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
-                    "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
+                            "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
+                            "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
                     "Escolha um item para levar consigo: ");
 
             armaEscolhida = System.console().readLine();
@@ -93,24 +93,24 @@ public class Game {
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
 
         // logica da batalha
-            do {
-                boolean eCorreta = PerguntasArray();
-                if (!eCorreta) {
-                    Print("Voce tomou o golpe");
-                    vida--;
-                } else if (armaEscolhida.equals("1")) {
-                    Print("Voce acertou o golpe");
-                    vidaDragao = vidaDragao - 1.5;
-                } else {
-                    Print("Voce acertou o golpe");
-                    vidaDragao = vidaDragao - 1;
-                }
-            }while (vida > 0 && vidaDragao > 0);
-
-            if (vida == 0) {
-                Print("Voce morreu");
-                return;
+        do {
+            boolean eCorreta = PerguntasArray();
+            if (!eCorreta) {
+                Print("Voce tomou o golpe");
+                vida--;
+            } else if (armaEscolhida.equals("1")) {
+                Print("Voce acertou o golpe");
+                vidaDragao = vidaDragao - 1.5;
+            } else {
+                Print("Voce acertou o golpe");
+                vidaDragao = vidaDragao - 1;
             }
+        } while (vida > 0 && vidaDragao > 0);
+
+        if (vida == 0) {
+            Print("Voce morreu");
+            return;
+        }
 
         Print(
                 "Depois de ter conseguido derrotar uma das poderosas criaturas que o bug supremo controlava, você decide tirar o restante do dia para descansar, pois ela te levou a sua exaustão, de maneira na qual isso acaba se tornando necessário.");
@@ -206,7 +206,7 @@ public class Game {
 
     }
 
-    public boolean PerguntasArray() throws InterruptedException{
+    public boolean PerguntasArray() throws InterruptedException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -214,7 +214,7 @@ public class Game {
         String AlternativaCerta = "";
         perguntaAleatoria = random.nextInt(10) + 1;
 
-        switch(perguntaAleatoria){
+        switch (perguntaAleatoria) {
             case 1:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
@@ -228,7 +228,7 @@ public class Game {
                 Alternativas.add("Erro de execução;");
                 AlternativaCerta = "30";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
-                
+
             case 2:
                 pergunta = "Qual a saída do código abaixo?\n" +
                         "\n" +
@@ -348,45 +348,228 @@ public class Game {
                 Alternativas.add("O array cria automaticamente um novo elemento para esse índice.");
                 AlternativaCerta = "Uma ArrayIndexOutOfBoundsException é lançada em tempo de execução.";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
-                
+
         }
 
         return false;
     }
 
-    public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta) throws InterruptedException{
-            Collections.shuffle(Alternativas);
 
-            if (Alternativas.get(0).equals(AlternativaCerta)){
-                AlternativaCerta = "a";
-            }   else if (Alternativas.get(1).equals(AlternativaCerta)){
-                AlternativaCerta = "b";
-            }   else if (Alternativas.get(2).equals(AlternativaCerta)){
-                AlternativaCerta = "c";
-            }   else if (Alternativas.get(3).equals(AlternativaCerta)){
-                AlternativaCerta = "d";
-            }   else if (Alternativas.get(4).equals(AlternativaCerta)){
-                AlternativaCerta = "e";
-            }
-            
-            Print(pergunta + "\n\nA - " + Alternativas.get(0) + "\n" +
-                  "B - " + Alternativas.get(1) + "\n" +
-                  "C - " + Alternativas.get(2) + "\n" +
-                  "D - " + Alternativas.get(3) + "\n" +
-                  "E - " + Alternativas.get(4), "Digite agora a alternativa que você acha que é correta:\n\n");
-            
-            String alternativaEscolhida = System.console().readLine();
+    public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta) throws InterruptedException {
+        Collections.shuffle(Alternativas);
 
-            if (alternativaEscolhida.toLowerCase().equals(AlternativaCerta)){
-                return true;
-            } else {
-                return false;
-            }
-        
+        if (Alternativas.get(0).equals(AlternativaCerta)) {
+            AlternativaCerta = "a";
+        } else if (Alternativas.get(1).equals(AlternativaCerta)) {
+            AlternativaCerta = "b";
+        } else if (Alternativas.get(2).equals(AlternativaCerta)) {
+            AlternativaCerta = "c";
+        } else if (Alternativas.get(3).equals(AlternativaCerta)) {
+            AlternativaCerta = "d";
+        } else if (Alternativas.get(4).equals(AlternativaCerta)) {
+            AlternativaCerta = "e";
+        }
+
+        Print(pergunta + "\n\nA - " + Alternativas.get(0) + "\n" +
+                "B - " + Alternativas.get(1) + "\n" +
+                "C - " + Alternativas.get(2) + "\n" +
+                "D - " + Alternativas.get(3) + "\n" +
+                "E - " + Alternativas.get(4), "Digite agora a alternativa que você acha que é correta:\n\n");
+
+        String alternativaEscolhida = System.console().readLine();
+
+        if (alternativaEscolhida.toLowerCase().equals(AlternativaCerta)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
-    public void PerguntasCondicionais() {
+    public boolean PerguntasCondicionais() throws InterruptedException {
+        Random random = new Random();
+        int perguntaAleatoria = 0;
+        String pergunta = "";
+        ArrayList<String> Alternativas = new ArrayList<String>();
+        String AlternativaCerta = "";
+        perguntaAleatoria = random.nextInt(10) + 1;
 
+        switch (perguntaAleatoria) {
+            case 1:
+                pergunta = "Qual a saída do código abaixo:?\n" +
+                        "boolean isWeekend = true;\n" +
+                        "boolean isHoliday = false;\n" +
+                        "if (eFimDeSemana || eFeriado) {\n" +
+                        "    System.out.println(\"Dia de descanso\");\n" +
+                        "} else {\n" +
+                        "    System.out.println(\"Dia de trabalho\");\n" +
+                        "}";
+                Alternativas.add("Dia de descanso");
+                Alternativas.add("Dia de trabalho");
+                Alternativas.add("Nenhuma saída");
+                Alternativas.add("O programa gera um erro de compilação");
+                Alternativas.add("Dia de feriado;");
+                AlternativaCerta = "O programa gera um erro de compilação";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 2:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "int a = 5;\n" +
+                        "int b = 15;\n" +
+                        "if (a < b) {\n" +
+                        "    if (b % a == 0) {\n" +
+                        "        System.out.println(\"B é múltiplo de A\");\n" +
+                        "    } else {\n" +
+                        "        System.out.println(\"B não é múltiplo de A\");\n" +
+                        "    }\n" +
+                        "} else {\n" +
+                        "    System.out.println(\"A não é menor que B\");\n" +
+                        "}";
+
+                Alternativas.add("B é múltiplo de A");
+                Alternativas.add("B não é múltiplo de A");
+                Alternativas.add("A não é menor que B");
+                Alternativas.add("Nenhuma saída");
+                Alternativas.add("A é igual a B");
+                AlternativaCerta = "B é múltiplo de A";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 3:
+                pergunta = "Qual a saída do código abaixo?\n" +
+                        "\n" +
+                        "int num1 = 12;\n" +
+                        "int num2 = 18;\n" +
+                        "if (num1 % 2 == 0 && num2 % 2 == 0) {\n" +
+                        "    System.out.println(\"Ambos são pares\");\n" +
+                        "} else if (num1 % 2 != 0 && num2 % 2 != 0) {\n" +
+                        "    System.out.println(\"Ambos são ímpares\");\n" +
+                        "} else {\n" +
+                        "    System.out.println(\"Um é par e o outro é ímpar\");\n" +
+                        "}";
+
+                Alternativas.add("Ambos são pares.");
+                Alternativas.add("Ambos são ímpares.");
+                Alternativas.add("Um é par e o outro é ímpar.");
+                Alternativas.add("Nenhuma saída.");
+                Alternativas.add("O programa gera um erro.");
+                AlternativaCerta = "Ambos são pares.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 4:
+                pergunta = "Qual a saída do código abaixo:\n" +
+                        "int idade = 30;\n" +
+                        "String categoria;\n" +
+                        "if (idade < 13) {\n" +
+                        "    categoria = \"Criança\";\n" +
+                        "} else if (idade < 18) {\n" +
+                        "    categoria = \"Adolescente\";\n" +
+                        "} else if (idade < 60) {\n" +
+                        "    categoria = \"Adulto\";\n" +
+                        "} else {\n" +
+                        "    categoria = \"Idoso\";\n" +
+                        "}\n" +
+                        "System.out.println(\"Categoria: \" + categoria);";
+
+                Alternativas.add("Categoria: Criança.");
+                Alternativas.add("Categoria: Adolescente.");
+                Alternativas.add("Categoria: Adulto.");
+                Alternativas.add("Categoria: Idoso.");
+                Alternativas.add("Categoria: Nenhuma saída.");
+                AlternativaCerta = "Categoria: Adulto.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 5:
+                pergunta = "Qual a diferença entre if, else if e else em Java??\n";
+
+                Alternativas.add("if é usado para uma única condição, else if para múltiplas e else é sempre necessário.");
+                Alternativas.add("if é sempre executado, else if é executado se if for falso, e else não pode ter condições.");
+                Alternativas.add("if testa a primeira condição, else if para condições adicionais e else é para o caso final.");
+                Alternativas.add("if pode ser usado apenas com números, else if apenas com strings, e else não pode ser usado com booleanos.");
+                Alternativas.add("if deve ser sempre o último bloco, else if deve ser o primeiro e else não pode existir sem if.");
+                AlternativaCerta = "if testa a primeira condição, else if para condições adicionais e else é para o caso final.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 6:
+                pergunta = "Como você pode usar uma expressão booleana em uma condição if?\n";
+
+                Alternativas.add("Você deve usar apenas números.");
+                Alternativas.add("As expressões booleanas não podem ser usadas em if.");
+                Alternativas.add("Você pode usá-las diretamente nas condições.");
+                Alternativas.add("Você deve convertê-las em strings primeiro.");
+                Alternativas.add("Você só pode usá-las em laços for.");
+                AlternativaCerta = "Você pode usá-las diretamente nas condições.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 7:
+                pergunta = "Qual é uma limitação do switch em Java?\n";
+
+                Alternativas.add("Ele pode ser usado apenas com números.");
+                Alternativas.add("Ele não pode ter default.");
+                Alternativas.add("Ele não pode ser usado com strings.");
+                Alternativas.add("Ele só pode avaliar uma expressão de tipo int, char, ou String.");
+                Alternativas.add("Ele não permite break.");
+                AlternativaCerta = "Ele só pode avaliar uma expressão de tipo int, char, ou String.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 8:
+                pergunta = "Como usar condicionais aninhadas em Java?\n";
+
+                Alternativas.add("Elas não são suportadas em Java.");
+                Alternativas.add("Elas devem ser usadas apenas com switch.");
+                Alternativas.add("Você pode usá-las quando uma condição depende de outra.");
+                Alternativas.add("Elas são sempre mais lentas do que if simples.");
+                Alternativas.add("Elas podem ser usadas apenas em métodos.");
+                AlternativaCerta = "Você pode usá-las quando uma condição depende de outra.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 9:
+                pergunta = "Qual a saída do código abaixo:\n" +
+                        "int  x = 12;\n" +
+                        "int y = 20;\n" +
+                        "if (x % 2 == 0) {\n" +
+                        "    if (y % 3 == 0) {\n" +
+                        "System.out.println(\"X é par e Y é múltiplo de 3\");\n" +
+                        "} else {\n" +
+                        "    System.out.println(\"X é par e Y não é múltiplo de 3\");\n" +
+                        " }\n" +
+                        " } else {;\n" +
+                        "System.out.println(\"X é ímpar\");\n" +
+                        "}";
+
+                Alternativas.add("X é ímpar;");
+                Alternativas.add("X é par e Y é múltiplo de 3;");
+                Alternativas.add("X é par e Y não é múltiplo de 3;");
+                Alternativas.add("Nenhuma saída;");
+                Alternativas.add("Y é par;");
+                AlternativaCerta = "X é par e Y não é múltiplo de 3;";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 10:
+                pergunta = "Qual a saída do código abaixo:\n" +
+                        "int a = 5;\n" +
+                        "int b = 10;\n" +
+                        "int c = 15;\n" +
+                        "String resultado;\n" +
+                        "if (a < b && b < c) {\n" +
+                        "    resultado = \"A menor que B e B menor que C\";\n" +
+                        "} else if (a > b && b > c) {\n" +
+                        "    resultado = \"A maior que B e B maior que C\";\n" +
+                        "} else if (a == b || b == c) {\n" +
+                        "    resultado = \"A é igual a B ou B é igual a C\";\n" +
+                        "} else {\n" +
+                        "    resultado = \"Nenhuma das condições\";\n" +
+                        "}\n" +
+                        "System.out.println(resultado);\n";
+
+                Alternativas.add("A menor que B e B menor que C.");
+                Alternativas.add("A maior que B e B maior que C.");
+                Alternativas.add("Erro de compilação.");
+                Alternativas.add("A é igual a B ou B é igual a C.");
+                Alternativas.add("Nenhuma das condições.");
+                AlternativaCerta = "A menor que B e B menor que C.";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+        }
+        return false;
     }
 
     public void PerguntasLoops() {
@@ -428,4 +611,5 @@ public class Game {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
 }
