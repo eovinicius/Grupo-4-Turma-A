@@ -41,6 +41,7 @@ public class Game {
         String armaEscolhida;
         int vida = 3;
         double vidaDragao = 3;
+        double vidaGuardiao = 3;
 
         Print(
                 "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino.",
@@ -117,6 +118,47 @@ public class Game {
 
         Print(
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
+
+        Print("Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
+
+        Print("O Guardião ergue seus braços, que parecem se dividir como múltiplos \"ifs\" e \"elses\", cada movimento emanando uma aura de complexidade crescente.");
+
+        Print("Ele lança uma onda de energia obscurecida por operadores lógicos confusos, fazendo com que suas percepções vacilem. Você vê ilusões de múltiplos caminhos e sente que, se não resolver rapidamente as condições corretas, poderá ficar preso em uma série de decisões sem retorno.");
+
+        Print("O Guardião continua:\n" +
+                "\"Escolha com sabedoria. Verdadeiro ou falso, sim ou não... Cada resposta pode mudar o curso do seu destino.\"");
+
+        do {
+            boolean eCorreta = PerguntasCondicionais();
+            if (!eCorreta) {
+                Print("Você tomou o golpe!");
+                vida--;
+            } else if (armaEscolhida.equals("3")) {
+                Print("Você acertou um golpe crítico!");
+                vidaGuardiao = vidaGuardiao - 1.5;
+            } else {
+                Print("Você acertou o golpe!");
+                vidaGuardiao = vidaGuardiao - 1;
+            }
+
+        } while (vida > 0 && vidaGuardiao > 0);
+
+        if (vida == 0) {
+            Print("Você morreu.");
+            return;
+        }
+
+        Print("Após derrotar o Guardião das Condicionais, seu corpo massivo se desfaz em linhas de código dispersas, como se cada condição e decisão errada que ele representava estivesse sendo desfeita. A caverna ao seu redor começa a tremer, mas, ao invés de desmoronar, ela se reorganiza em padrões lógicos. Símbolos de if, else, e switch se alinham, como se as escolhas certas tivessem destrancado um novo caminho.\n" +
+                "\n" +
+                "Uma passagem secreta surge, iluminada por símbolos que parecem representar repetições: o símbolo de um loop infinito pisca suavemente, junto de ícones de laços for, while e do-while. Você avança com cautela, sentindo que algo perigoso o espera.");
+
+        Print("A passagem leva você a uma vasta câmara, onde o ar parece denso e o tempo, distorcido. Em todos os cantos, frases de código se repetem ininterruptamente, formando ecos perturbadores. À sua frente, uma presença colossal desperta: o Senhor dos Loops Eternos.\n" +
+                "\n" +
+                "Essa criatura é uma personificação do caos que surge de loops descontrolados. Seus braços são como serpentes, girando em círculos e entrelaçando-se, simulando ciclos que não conseguem parar. Seus olhos brilham com variáveis mal-inicializadas e laços sem condição de parada.");
+        Print("Senhor dos Loops Eternos:\n" +
+                "\"Eu sou o ciclo interminável, a repetição sem fim que consome a lógica e aprisiona o tempo! Quem ousa me interromper?\"\n");
+
+        Print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
     }
 
     public void InterfaceCreditos() throws InterruptedException {
@@ -124,7 +166,7 @@ public class Game {
         Print(
                 "Esse jogo foi desenvolvido no primeiro semestre do curso de Analise e Desenvolvimento de Sistemas\n" +
                         "Para ajudar estudantes na area com dificuldade no aprendizado\n" +
-                        "Feito na diciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
+                        "Feito na disciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
 
         Print(
                 "Pelos alunos: \n" +
@@ -288,7 +330,7 @@ public class Game {
                 Alternativas.add("[Lapis, Borracha]");
                 Alternativas.add("[Caneta, Borracha, Lapis]");
                 Alternativas.add("Lança uma IndexOutOfBoundsException");
-                AlternativaCerta = "6";
+                AlternativaCerta = "[Caneta, Borracha]";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
             case 6:
@@ -397,9 +439,9 @@ public class Game {
         switch (perguntaAleatoria) {
             case 1:
                 pergunta = "Qual a saída do código abaixo:?\n" +
-                        "boolean isWeekend = true;\n" +
-                        "boolean isHoliday = false;\n" +
-                        "if (eFimDeSemana || eFeriado) {\n" +
+                        "boolean eFimDeSemana = true;\n" +
+                        "boolean eFeriado = false;\n" +
+                        "if (eFimDeeSemana || eFeriado) {\n" +
                         "    System.out.println(\"Dia de descanso\");\n" +
                         "} else {\n" +
                         "    System.out.println(\"Dia de trabalho\");\n" +
