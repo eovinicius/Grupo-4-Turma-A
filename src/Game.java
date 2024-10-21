@@ -7,7 +7,7 @@ import java.util.Random;
 public class Game {
     public void iniciar() throws InterruptedException {
         while (true) {
-            limparConsole();
+            limpaConsole();
             System.out.println("Menu:");
             System.out.println("0 - Jogar");
             System.out.println("1 - Instruções");
@@ -18,13 +18,13 @@ public class Game {
             String opcao = System.console().readLine();
             switch (opcao) {
                 case "0":
-                    Jogar();
+                    jogar();
                     break;
                 case "1":
-                    InterfaceInstrucoes();
+                    interfaceInstrucoes();
                     break;
                 case "2":
-                    InterfaceCreditos();
+                    interfaceCreditos();
                     break;
                 case "3":
                     System.out.println("Jogo finalizado!");
@@ -36,25 +36,25 @@ public class Game {
         }
     }
 
-    public void Jogar() throws InterruptedException, RuntimeException {
+    public void jogar() throws InterruptedException, RuntimeException {
         String nomeJogador;
         String armaEscolhida;
         int vida = 3;
         double vidaDragao = 3;
         double vidaGuardiao = 3;
 
-        Print(
+        print(
                 "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino.",
                 "Qual é o seu nome? ");
 
         nomeJogador = System.console().readLine().toUpperCase();
-        Print("O rei Syntaxius: " + nomeJogador
+        print("O rei Syntaxius: " + nomeJogador
                 + ", O Debugger eu convoco você para uma missão de extrema importância. O Bug Supremo despertou e está causando o caos em Algoritmópolis. Você é a única esperança do reino. Derrote o Bug Supremo e traga a paz de volta para o nosso reino!");
-        Print(
+        print(
                 "O rei Syntaxius: Antes de partir, você precisará de um equipamento adequado para enfrentar as criaturas do Bug Supremo. Escolha um item para levar consigo: ");
 
         do {
-            Print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
+            print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
                             "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
                             "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
                     "Escolha um item para levar consigo: ");
@@ -63,112 +63,112 @@ public class Game {
 
             switch (armaEscolhida) {
                 case "1":
-                    Print(
+                    print(
                             "Você escolheu a Espada de Ferro. Que ela seja afiada o suficiente para cortar as criaturas de Arrays do Bug Supremo!");
                     break;
                 case "2":
-                    Print(
+                    print(
                             "Você escolheu o Cajado de Madeira. Que ele seja resistente o suficiente para enfrentar as criaturas de Estruturas de Repetição do Bug Supremo!");
                     break;
                 case "3":
-                    Print(
+                    print(
                             "Você escolheu o Arco de Pinho. Que ele seja preciso o suficiente para acertar as criaturas de Estruturas de Decisão do Bug Supremo!");
                     break;
                 default:
-                    Print("Opção inválida. Escolha novamente.");
+                    print("Opção inválida. Escolha novamente.");
                     break;
             }
 
         } while (!(armaEscolhida.equals("1") || armaEscolhida.equals("2") || armaEscolhida.equals("3")));
 
-        Print(
+        print(
                 "Após isso, provando sua lealdade ao reino, você junta tudo que julga como necessário para esta missão, saindo logo na manhã do dia seguinte para ir em busca do ser que está colocando seu reino a beira do desmoranamento. ");
 
-        Print(
+        print(
                 "Após caminhar por quatro horas ininterruptas pelas vastas planícies de Algoritmópolis, você começa a notar que o terreno ao seu redor está mudando. Os dados, antes organizados em estruturas claras, começam a desmoronar, criando montanhas de informações sem ordem. Quando começa a prestar mais atenção nos dados que estão desorganizados ao seu redor, percebe que se tratam de dados relacioados a repetições. Depois de alguns poucos minutos em uma grande desordem chega uma criatura mística gigantesca, o Dragão dos Loops e, para sua surpresa, apesar de se tratar de uma criatura, ele fala: ");
 
-        Print(
+        print(
                 "Dragão dos Arrays: Seus olhos brilham com o caos de índices infinitos enquanto suas garras afiadas procuram destruir toda lógica. Prepare-se, pois cada erro será punido com um ataque fatal!");
 
-        Print(
+        print(
                 "Vendo que está vindo uma grande rajada de fogo em sua direção você tenta desviar e contra-atacar com um golpe: ");
 
         // logica da batalha
         do {
-            boolean eCorreta = PerguntasArray();
+            boolean eCorreta = perguntasArray();
             if (!eCorreta) {
-                Print("Voce tomou o golpe");
+                print("Voce tomou o golpe");
                 vida--;
             } else if (armaEscolhida.equals("1")) {
-                Print("Voce acertou o golpe");
+                print("Voce acertou o golpe");
                 vidaDragao = vidaDragao - 1.5;
             } else {
-                Print("Voce acertou o golpe");
+                print("Voce acertou o golpe");
                 vidaDragao = vidaDragao - 1;
             }
         } while (vida > 0 && vidaDragao > 0);
 
         if (vida == 0) {
-            Print("Voce morreu");
+            print("Voce morreu");
             return;
         }
 
-        Print(
+        print(
                 "Depois de ter conseguido derrotar uma das poderosas criaturas que o bug supremo controlava, você decide tirar o restante do dia para descansar, pois ela te levou a sua exaustão, de maneira na qual isso acaba se tornando necessário.");
 
-        Print(
+        print(
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
 
-        Print("Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
+        print("Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
 
-        Print("O Guardião ergue seus braços, que parecem se dividir como múltiplos \"ifs\" e \"elses\", cada movimento emanando uma aura de complexidade crescente.");
+        print("O Guardião ergue seus braços, que parecem se dividir como múltiplos \"ifs\" e \"elses\", cada movimento emanando uma aura de complexidade crescente.");
 
-        Print("Ele lança uma onda de energia obscurecida por operadores lógicos confusos, fazendo com que suas percepções vacilem. Você vê ilusões de múltiplos caminhos e sente que, se não resolver rapidamente as condições corretas, poderá ficar preso em uma série de decisões sem retorno.");
+        print("Ele lança uma onda de energia obscurecida por operadores lógicos confusos, fazendo com que suas percepções vacilem. Você vê ilusões de múltiplos caminhos e sente que, se não resolver rapidamente as condições corretas, poderá ficar preso em uma série de decisões sem retorno.");
 
-        Print("O Guardião continua:\n" +
+        print("O Guardião continua:\n" +
                 "\"Escolha com sabedoria. Verdadeiro ou falso, sim ou não... Cada resposta pode mudar o curso do seu destino.\"");
 
         do {
-            boolean eCorreta = PerguntasCondicionais();
+            boolean eCorreta = perguntasCondicionais();
             if (!eCorreta) {
-                Print("Você tomou o golpe!");
+                print("Você tomou o golpe!");
                 vida--;
             } else if (armaEscolhida.equals("3")) {
-                Print("Você acertou um golpe crítico!");
+                print("Você acertou um golpe crítico!");
                 vidaGuardiao = vidaGuardiao - 1.5;
             } else {
-                Print("Você acertou o golpe!");
+                print("Você acertou o golpe!");
                 vidaGuardiao = vidaGuardiao - 1;
             }
 
         } while (vida > 0 && vidaGuardiao > 0);
 
         if (vida == 0) {
-            Print("Você morreu.");
+            print("Você morreu.");
             return;
         }
 
-        Print("Após derrotar o Guardião das Condicionais, seu corpo massivo se desfaz em linhas de código dispersas, como se cada condição e decisão errada que ele representava estivesse sendo desfeita. A caverna ao seu redor começa a tremer, mas, ao invés de desmoronar, ela se reorganiza em padrões lógicos. Símbolos de if, else, e switch se alinham, como se as escolhas certas tivessem destrancado um novo caminho.\n" +
+        print("Após derrotar o Guardião das Condicionais, seu corpo massivo se desfaz em linhas de código dispersas, como se cada condição e decisão errada que ele representava estivesse sendo desfeita. A caverna ao seu redor começa a tremer, mas, ao invés de desmoronar, ela se reorganiza em padrões lógicos. Símbolos de if, else, e switch se alinham, como se as escolhas certas tivessem destrancado um novo caminho.\n" +
                 "\n" +
                 "Uma passagem secreta surge, iluminada por símbolos que parecem representar repetições: o símbolo de um loop infinito pisca suavemente, junto de ícones de laços for, while e do-while. Você avança com cautela, sentindo que algo perigoso o espera.");
 
-        Print("A passagem leva você a uma vasta câmara, onde o ar parece denso e o tempo, distorcido. Em todos os cantos, frases de código se repetem ininterruptamente, formando ecos perturbadores. À sua frente, uma presença colossal desperta: o Senhor dos Loops Eternos.\n" +
+        print("A passagem leva você a uma vasta câmara, onde o ar parece denso e o tempo, distorcido. Em todos os cantos, frases de código se repetem ininterruptamente, formando ecos perturbadores. À sua frente, uma presença colossal desperta: o Senhor dos Loops Eternos.\n" +
                 "\n" +
                 "Essa criatura é uma personificação do caos que surge de loops descontrolados. Seus braços são como serpentes, girando em círculos e entrelaçando-se, simulando ciclos que não conseguem parar. Seus olhos brilham com variáveis mal-inicializadas e laços sem condição de parada.");
-        Print("Senhor dos Loops Eternos:\n" +
+        print("Senhor dos Loops Eternos:\n" +
                 "\"Eu sou o ciclo interminável, a repetição sem fim que consome a lógica e aprisiona o tempo! Quem ousa me interromper?\"\n");
 
-        Print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
+        print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
     }
 
-    public void InterfaceCreditos() throws InterruptedException {
+    public void interfaceCreditos() throws InterruptedException {
 
-        Print(
+        print(
                 "Esse jogo foi desenvolvido no primeiro semestre do curso de Analise e Desenvolvimento de Sistemas\n" +
                         "Para ajudar estudantes na area com dificuldade no aprendizado\n" +
                         "Feito na disciplina Projeto Integrador e Logica de Programacao cujo professor Eduardo Takeo");
 
-        Print(
+        print(
                 "Pelos alunos: \n" +
                         "Gabriel Lins\n" +
                         "Gustavo Patriota\n" +
@@ -178,33 +178,33 @@ public class Game {
 
     }
 
-    public void InterfaceInstrucoes() throws InterruptedException {
+    public void interfaceInstrucoes() throws InterruptedException {
         String opcao = "";
-        LimpaConsole();
+        limpaConsole();
 
-        Print("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
+        print("Este é um jogo de RPG, onde você irá poder escolher seu nome, sua classe, " +
                 "e a partir de algumas escolhas o jogo pode tomar rumos diferentes a cada vez que for jogado. " +
                 "Seguem abaixo as principais instruções do jogo:\n\n" +
                 "Instrução número 1:\n" +
                 "\nAs mensagens serão demonstradas caractere por caractere. " +
                 "A todo momento que acabar os caracteres a serem demonstrados, pressione ENTER para continuar. " +
                 "(Realize o teste agora de como isso irá funcionar)");
-        Print("Instrução número 2:\n" +
+        print("Instrução número 2:\n" +
                 "\nA escolha do seu nome não interfere em nada no jogo, " +
                 "mas a da sua classe sim, ela será baseada na arma que você escolher. " +
                 "Cada uma delas dará algum benefício (isso será apresentado no próprio jogo), " +
                 "que pode facilitar certas partes do jogo e manter outras mais difíceis.");
-        Print("Instrução número 3:\n" +
+        print("Instrução número 3:\n" +
                 "\nDurante o desenvolvimento do jogo, você irá enfrentar criaturas místicas. " +
                 "Durante esses combates, você irá atacar e será atacado pela criatura. " +
                 "Um desvio ou acerto de ataque será contabilizado a partir de desafios propostos sobre a matéria 'Algoritmos e Programação I'. "
                 +
                 "Caso acerte a questão, irá dar certo para você; caso erre, irá dar certo para a criatura.");
-        Print("Instrução número 4:\n" +
+        print("Instrução número 4:\n" +
                 "\nSobre as questões, serão dois tipos: perguntas com alternativas e perguntas dissertativas. " +
                 "As dissertativas exigirão que você escreva, complete ou corrija algumas partes de códigos em Java " +
                 "(linguagem utilizada na matéria escolhida neste semestre).");
-        Print("Instrução número 5:\n" +
+        print("Instrução número 5:\n" +
                 "\nMUITA ATENÇÃO COM LETRAS MAIÚSCULAS E MINÚSCULAS.\n" +
                 "Nas questões alternativas você pode digitar uma letra maiúscula ou minúscula, exemplo 'd' ou 'D', " +
                 "o resultado será igual.\n" +
@@ -216,7 +216,7 @@ public class Game {
                 "como colocaria em um código em uma IDE.");
 
         do {
-            Print(
+            print(
                     "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
                             +
                             "O que você deseja fazer? Digite o número da opção desejada\n" +
@@ -228,19 +228,19 @@ public class Game {
             opcao = System.console().readLine();
             switch (opcao) {
                 case "1":
-                    Jogar();
+                    jogar();
                     break;
                 case "2":
                     iniciar();
                     break;
                 case "3":
-                    InterfaceInstrucoes();
+                    interfaceInstrucoes();
                     break;
                 case "4":
                     System.out.println("Jogo finalizado.");
                     break;
                 default:
-                    Print(
+                    print(
                             "A opção que você digitou não estava dentre as possíveis para escolha, ao pressionar ENTER você será redirecionado para a tela com as opções.");
                     break;
             }
@@ -248,7 +248,7 @@ public class Game {
 
     }
 
-    public boolean PerguntasArray() throws InterruptedException {
+    public boolean perguntasArray() throws InterruptedException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -412,7 +412,7 @@ public class Game {
             AlternativaCerta = "e";
         }
 
-        Print(pergunta + "\n\nA - " + Alternativas.get(0) + "\n" +
+        print(pergunta + "\n\nA - " + Alternativas.get(0) + "\n" +
                 "B - " + Alternativas.get(1) + "\n" +
                 "C - " + Alternativas.get(2) + "\n" +
                 "D - " + Alternativas.get(3) + "\n" +
@@ -428,7 +428,7 @@ public class Game {
 
     }
 
-    public boolean PerguntasCondicionais() throws InterruptedException {
+    public boolean perguntasCondicionais() throws InterruptedException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -614,17 +614,17 @@ public class Game {
         return false;
     }
 
-    public void PerguntasLoops() {
+    public void perguntasLoops() {
 
     }
 
-    public void LimpaConsole() {
+    public void limpaConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    public void Print(String mensagem) throws InterruptedException {
-        limparConsole();
+    public void print(String mensagem) throws InterruptedException {
+        limpaConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
             System.out.flush();
@@ -634,8 +634,8 @@ public class Game {
         System.console().readLine();
     }
 
-    public void Print(String mensagem, String pergunta) throws InterruptedException {
-        limparConsole();
+    public void print(String mensagem, String pergunta) throws InterruptedException {
+        limpaConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
             System.out.flush();
@@ -648,7 +648,7 @@ public class Game {
             Thread.sleep(5);
         }
     }
-
+    
     public void limparConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
