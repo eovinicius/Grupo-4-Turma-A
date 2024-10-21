@@ -652,6 +652,17 @@ public class Game {
             Thread.sleep(5);
         }
     }
- 
+    
+    public void dragaoArray(){
+
+    }
+
+    public void dragaoCondicional(){
+
+    }
+
+    public void dragaoLoops(){
+        
+    }
 
 }
