@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Game {
     public void iniciar() throws InterruptedException {
-        guardiaoCondicional();
         while (true) {
             limpaConsole();
             System.out.println("Menu:");
