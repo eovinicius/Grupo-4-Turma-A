@@ -25,10 +25,10 @@ public class Game {
                     interfaceCreditos();
                     break;
                 case "3":
-                    System.out.println("Jogo finalizado!");
+                    print("Jogo finalizado!");
                     return;
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    print("Opção inválida. Tente novamente.");
                     break;
             }
         }
@@ -53,8 +53,8 @@ public class Game {
 
         do {
             print("1 - Espada de Ferro (Vantagem contra criaturas de ARRAYS)\n" +
-                            "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
-                            "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
+                    "2 - Cajado de Madeira (Vantagem contra criaturas de ESTRUTURAS DE REPETIÇÃO)\n" +
+                    "3 - Arco de Pinho (Vantagem contra criaturas de ESTRUTURAS DE DECISÃO)",
                     "Escolha um item para levar consigo: ");
 
             armaEscolhida = System.console().readLine();
@@ -146,11 +146,13 @@ public class Game {
             return;
         }
 
-        print("Após derrotar o Guardião das Condicionais, seu corpo massivo se desfaz em linhas de código dispersas, como se cada condição e decisão errada que ele representava estivesse sendo desfeita. A caverna ao seu redor começa a tremer, mas, ao invés de desmoronar, ela se reorganiza em padrões lógicos. Símbolos de if, else, e switch se alinham, como se as escolhas certas tivessem destrancado um novo caminho.\n" +
+        print("Após derrotar o Guardião das Condicionais, seu corpo massivo se desfaz em linhas de código dispersas, como se cada condição e decisão errada que ele representava estivesse sendo desfeita. A caverna ao seu redor começa a tremer, mas, ao invés de desmoronar, ela se reorganiza em padrões lógicos. Símbolos de if, else, e switch se alinham, como se as escolhas certas tivessem destrancado um novo caminho.\n"
+                +
                 "\n" +
                 "Uma passagem secreta surge, iluminada por símbolos que parecem representar repetições: o símbolo de um loop infinito pisca suavemente, junto de ícones de laços for, while e do-while. Você avança com cautela, sentindo que algo perigoso o espera.");
 
-        print("A passagem leva você a uma vasta câmara, onde o ar parece denso e o tempo, distorcido. Em todos os cantos, frases de código se repetem ininterruptamente, formando ecos perturbadores. À sua frente, uma presença colossal desperta: o Senhor dos Loops Eternos.\n" +
+        print("A passagem leva você a uma vasta câmara, onde o ar parece denso e o tempo, distorcido. Em todos os cantos, frases de código se repetem ininterruptamente, formando ecos perturbadores. À sua frente, uma presença colossal desperta: o Senhor dos Loops Eternos.\n"
+                +
                 "\n" +
                 "Essa criatura é uma personificação do caos que surge de loops descontrolados. Seus braços são como serpentes, girando em círculos e entrelaçando-se, simulando ciclos que não conseguem parar. Seus olhos brilham com variáveis mal-inicializadas e laços sem condição de parada.");
         print("Senhor dos Loops Eternos:\n" +
@@ -394,8 +396,8 @@ public class Game {
         return false;
     }
 
-
-    public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta) throws InterruptedException {
+    public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta)
+            throws InterruptedException {
         Collections.shuffle(Alternativas);
 
         if (Alternativas.get(0).equals(AlternativaCerta)) {
@@ -521,11 +523,16 @@ public class Game {
             case 5:
                 pergunta = "Qual a diferença entre if, else if e else em Java??\n";
 
-                Alternativas.add("if é usado para uma única condição, else if para múltiplas e else é sempre necessário.");
-                Alternativas.add("if é sempre executado, else if é executado se if for falso, e else não pode ter condições.");
-                Alternativas.add("if testa a primeira condição, else if para condições adicionais e else é para o caso final.");
-                Alternativas.add("if pode ser usado apenas com números, else if apenas com strings, e else não pode ser usado com booleanos.");
-                Alternativas.add("if deve ser sempre o último bloco, else if deve ser o primeiro e else não pode existir sem if.");
+                Alternativas
+                        .add("if é usado para uma única condição, else if para múltiplas e else é sempre necessário.");
+                Alternativas.add(
+                        "if é sempre executado, else if é executado se if for falso, e else não pode ter condições.");
+                Alternativas.add(
+                        "if testa a primeira condição, else if para condições adicionais e else é para o caso final.");
+                Alternativas.add(
+                        "if pode ser usado apenas com números, else if apenas com strings, e else não pode ser usado com booleanos.");
+                Alternativas.add(
+                        "if deve ser sempre o último bloco, else if deve ser o primeiro e else não pode existir sem if.");
                 AlternativaCerta = "if testa a primeira condição, else if para condições adicionais e else é para o caso final.";
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
@@ -623,11 +630,11 @@ public class Game {
         switch (perguntaAleatoria) {
             case 1:
                 pergunta = "Qual é a saída do seguinte código?\n" +
-                        
-                "for (int i = 0; i < 5; i++) {\n" +
+
+                        "for (int i = 0; i < 5; i++) {\n" +
                         "   System.out.print(i + \" \");\n" +
-                "}\n" +
-                Alternativas.add(" 0 1 2 3 4");
+                        "}\n" +
+                        Alternativas.add(" 0 1 2 3 4");
                 Alternativas.add("1 2 3 4 5");
                 Alternativas.add("0 1 2 3 4 5");
                 Alternativas.add("1 2 3 4");
@@ -636,10 +643,10 @@ public class Game {
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
             case 2:
-                pergunta = "Qual estrutura de loop é mais adequada para iterar sobre todos os elementos de um array?\n" +
-    
+                pergunta = "Qual estrutura de loop é mais adequada para iterar sobre todos os elementos de um array?\n"
+                        +
 
-                Alternativas.add("for");
+                        Alternativas.add("for");
                 Alternativas.add("while");
                 Alternativas.add("do-while");
                 Alternativas.add("for-each");
@@ -649,15 +656,14 @@ public class Game {
 
             case 3:
                 pergunta = "Qual é o resultado do seguinte código?\n" +
-                    
+
                         "int sum = 0;\n" +
                         "for (int i = 1; i <= 5; i++) {\n" +
-                            "sum += i;\n" +
+                        "sum += i;\n" +
                         "}\n" +
                         "System.out.println(sum);\n" +
-                        
 
-                Alternativas.add("5");
+                        Alternativas.add("5");
                 Alternativas.add("10");
                 Alternativas.add("15");
                 Alternativas.add("20");
@@ -667,9 +673,8 @@ public class Game {
 
             case 4:
                 pergunta = "O que acontece se a condição de um loop while nunca for verdadeira?\n" +
-                    
 
-                Alternativas.add("O loop executa uma vez");
+                        Alternativas.add("O loop executa uma vez");
                 Alternativas.add("O loop entra em um loop infinito");
                 Alternativas.add("O loop não é executado");
                 Alternativas.add("O loop executa indefinidamente");
@@ -678,16 +683,15 @@ public class Game {
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
             case 5:
-                pergunta = "Qual é a saída do seguinte código?\n"+
+                pergunta = "Qual é a saída do seguinte código?\n" +
 
                         "int count = 0;\n" +
                         "while (count < 3) {\n" +
-                            "System.out.println(\"Hello\");\n" +
-                            "count++;\n" +
+                        "System.out.println(\"Hello\");\n" +
+                        "count++;\n" +
                         "}\n" +
-                    
 
-                Alternativas.add("Hello Hello Hello");
+                        Alternativas.add("Hello Hello Hello");
                 Alternativas.add("Hello Hello");
                 Alternativas.add("Hello");
                 Alternativas.add("Hello Hello Hello Hello");
@@ -696,16 +700,13 @@ public class Game {
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
             case 6:
-                pergunta = "O que o seguinte trecho de código imprime?\n"+
-                  
-                "for (int i = 0; i < 10; i += 2) {\n" +
-                    "System.out.print(i + \" \");\n" +
-                "}\n" +
-                
+                pergunta = "O que o seguinte trecho de código imprime?\n" +
 
-                
+                        "for (int i = 0; i < 10; i += 2) {\n" +
+                        "System.out.print(i + \" \");\n" +
+                        "}\n" +
 
-                Alternativas.add("0 1 2 3 4 5 6 7 8 9");
+                        Alternativas.add("0 1 2 3 4 5 6 7 8 9");
                 Alternativas.add("0 2 4 6 8");
                 Alternativas.add("1 3 5 7 9");
                 Alternativas.add("0 1 3 5 7 9");
@@ -725,7 +726,7 @@ public class Game {
                 return validaPergunta(pergunta, Alternativas, AlternativaCerta);
 
             case 8:
-                pergunta = "Qual é a saída do seguinte código?\n"+
+                pergunta = "Qual é a saída do seguinte código?\n" +
 
                         "for (int i = 0; i < 3; i++) {\n" +
                         "   for (int j = 0; j < 2; j++) {\n" +
@@ -733,7 +734,7 @@ public class Game {
                         " }\n" +
                         "}\n" +
 
-                Alternativas.add("0 1 1 2 2 3");
+                        Alternativas.add("0 1 1 2 2 3");
                 Alternativas.add(" 0 1 1 2 2 3 3 4");
                 Alternativas.add("0 1 2 3 4");
                 Alternativas.add("0 1 0 1 1 2");
@@ -748,9 +749,8 @@ public class Game {
                         "System.out.print(i + \" \");\n" +
                         "i++;\n" +
                         "} while (i < 5);\n" +
-                       
 
-                Alternativas.add("Imprime 0 1 2 3 4");
+                        Alternativas.add("Imprime 0 1 2 3 4");
                 Alternativas.add("Imprime 1 2 3 4 5");
                 Alternativas.add("Imprime 0 1 2 3 4 5");
                 Alternativas.add("Imprime 1 2 3 4");
@@ -760,9 +760,8 @@ public class Game {
 
             case 10:
                 pergunta = "Qual é o propósito do comando continue em um loop?\n" +
-                    
 
-                Alternativas.add("Encerrar o loop");
+                        Alternativas.add("Encerrar o loop");
                 Alternativas.add("Ignorar a iteração atual e continuar com a próxima");
                 Alternativas.add("Reiniciar o loop");
                 Alternativas.add("Interromper a execução do programa");
@@ -807,58 +806,56 @@ public class Game {
             Thread.sleep(5);
         }
     }
-    
-    public void dragaoArray(){
+
+    public void dragaoArray() {
 
     }
 
-    public void guardiaoCondicional() throws InterruptedException{
+    public void guardiaoCondicional() throws InterruptedException {
         print(
-        "            ###1##         #######           \n" +
-        "         ###111##           ##111####        \n" +
-        "      ####1111###            ###1111###1     \n" +
-        "     ###1111####             ####11111###    \n " +
-        "   ###11#1#1####   ##    ##  #####1#1#1###1  \n " +
-        "  ###11#1#11#####  ########  #####1#1##11##1 \n " +
-        " ###11##1#11######  ###### #######1##1##1### \n " +
-        "####1##11##1######################1##1###1###\n " +
-        "###11##11##1#####################1###1###1###\n " +
-        "###1####1###1###################11###1###11##\n " +
-        " ##11###1####1##################1###1####1###\n " +
-        " ###1####1##########################1####1##1\n " +
-        "  ##1########  ###############  ########1### \n " +
-        "   ##1### ##       ########      ##########  \n " +
-        "    ####            ######           ####    \n " +
-        "      ###          ###  ###          ##      \n " +
-        "       ###         #      #         ###      \n ");
+                "            ###1##         #######           \n" +
+                        "         ###111##           ##111####        \n" +
+                        "      ####1111###            ###1111###1     \n" +
+                        "     ###1111####             ####11111###    \n " +
+                        "   ###11#1#1####   ##    ##  #####1#1#1###1  \n " +
+                        "  ###11#1#11#####  ########  #####1#1##11##1 \n " +
+                        " ###11##1#11######  ###### #######1##1##1### \n " +
+                        "####1##11##1######################1##1###1###\n " +
+                        "###11##11##1#####################1###1###1###\n " +
+                        "###1####1###1###################11###1###11##\n " +
+                        " ##11###1####1##################1###1####1###\n " +
+                        " ###1####1##########################1####1##1\n " +
+                        "  ##1########  ###############  ########1### \n " +
+                        "   ##1### ##       ########      ##########  \n " +
+                        "    ####            ######           ####    \n " +
+                        "      ###          ###  ###          ##      \n " +
+                        "       ###         #      #         ###      \n ");
     }
 
-    public void dragaoLoops(){
-        
-        
+    public void dragaoLoops() {
+
     }
 
-    public void casteloInicio() throws InterruptedException{
+    public void casteloInicio() throws InterruptedException {
         print(
-            "                                  |>>>                              \n" +
-            "                                  |                                 \n" +
-            "                    |>>>      _  _|_  _         |>>>                \n" +
-            "                    |        |;| |;| |;|        |                   \n" +
-            "                _  _|_  _    \\\\.    .  /    _  _|_  _               \n" +
-            "               |;|_|;|_|;|    \\\\:. ,  /    |;|_|;|_|;|              \n" +
-            "               \\\\..      /    ||;   . |    \\\\.    .  /              \n" +
-            "                \\\\.  ,  /     ||:  .  |     \\\\:  .  /               \n" +
-            "                 ||:   |_   _ ||_ . _ | _   _||:   |                \n" +
-            "                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |                \n" +
-            "                 ||:   ||.    .     .      . ||:  .|                \n" +
-            "                 ||: . || .     . .   .  ,   ||:   |       \\,/      \n" +
-            "                 ||:   ||:  ,  _______   .   ||: , |            /`\\ \n" +
-            "                 ||:   || .   /+++++++\\    . ||:   |                \n" +
-            "                 ||:   ||.    |+++++++| .    ||: . |                \n" +
-            "              __ ||: . ||: ,  |+++++++|.  . _||_   |                \n" +
-            "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              \n" +
-            "-~--~                   ~---__|,--~'                  ~~----_____-~'\n"
-        );
+                "                                  |>>>                              \n" +
+                        "                                  |                                 \n" +
+                        "                    |>>>      _  _|_  _         |>>>                \n" +
+                        "                    |        |;| |;| |;|        |                   \n" +
+                        "                _  _|_  _    \\\\.    .  /    _  _|_  _               \n" +
+                        "               |;|_|;|_|;|    \\\\:. ,  /    |;|_|;|_|;|              \n" +
+                        "               \\\\..      /    ||;   . |    \\\\.    .  /              \n" +
+                        "                \\\\.  ,  /     ||:  .  |     \\\\:  .  /               \n" +
+                        "                 ||:   |_   _ ||_ . _ | _   _||:   |                \n" +
+                        "                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |                \n" +
+                        "                 ||:   ||.    .     .      . ||:  .|                \n" +
+                        "                 ||: . || .     . .   .  ,   ||:   |       \\,/      \n" +
+                        "                 ||:   ||:  ,  _______   .   ||: , |            /`\\ \n" +
+                        "                 ||:   || .   /+++++++\\    . ||:   |                \n" +
+                        "                 ||:   ||.    |+++++++| .    ||: . |                \n" +
+                        "              __ ||: . ||: ,  |+++++++|.  . _||_   |                \n" +
+                        "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              \n" +
+                        "-~--~                   ~---__|,--~'                  ~~----_____-~'\n");
     }
 
 }
