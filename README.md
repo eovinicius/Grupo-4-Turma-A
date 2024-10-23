@@ -1,8 +1,8 @@
-# Terminal RPG - Jogo Educacional para Prática de Algoritmos e Lógica
+# Reino de algoritmopolis - Jogo Educacional
 
 ### Descrição
 
-**Terminal RPG** é um jogo baseado em texto que combina desafios de lógica e algoritmos com uma aventura de RPG em um terminal. O objetivo principal é ajudar os jogadores a praticar e aprimorar suas habilidades de programação, enquanto exploram um mundo fictício cheio de monstros, tesouros e desafios intelectuais.
+**Reino de algoritmopolis** é um jogo baseado em texto que combina desafios de lógica e algoritmos com uma aventura de RPG em um terminal. O objetivo principal é ajudar os jogadores a praticar e aprimorar suas habilidades de programação, enquanto exploram um mundo fictício cheio de monstros, tesouros e desafios intelectuais.
 
 O jogo é desenvolvido em **Java** e utiliza **ASCII art** para dar vida aos elementos visuais do jogo no terminal. Cada batalha, quebra-cabeça ou encontro de monstros exige a resolução de problemas de programação e lógica.
 
