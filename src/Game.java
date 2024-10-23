@@ -775,7 +775,7 @@ public class Game {
         return false;
     }
 
-    public void perguntasBossFinal() {
+    public void perguntasBugSupremo() {
 
     }
 
