@@ -42,7 +42,7 @@ public class Game {
         double vidaDragao = 3;
         double vidaGuardiao = 3;
         casteloInicio();
-        print(
+        print(casteloInicio() + "\n\n" +
                 "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino.",
                 "Qual é o seu nome? ");
 
@@ -86,7 +86,7 @@ public class Game {
         print(
                 "Após caminhar por quatro horas ininterruptas pelas vastas planícies de Algoritmópolis, você começa a notar que o terreno ao seu redor está mudando. Os dados, antes organizados em estruturas claras, começam a desmoronar, criando montanhas de informações sem ordem. Quando começa a prestar mais atenção nos dados que estão desorganizados ao seu redor, percebe que se tratam de dados relacioados a repetições. Depois de alguns poucos minutos em uma grande desordem chega uma criatura mística gigantesca, o Dragão dos Loops e, para sua surpresa, apesar de se tratar de uma criatura, ele fala: ");
 
-        print(
+        print(dragaoArray() + "\n\n" +
                 "Dragão dos Arrays: Seus olhos brilham com o caos de índices infinitos enquanto suas garras afiadas procuram destruir toda lógica. Prepare-se, pois cada erro será punido com um ataque fatal!");
 
         print(
@@ -96,13 +96,13 @@ public class Game {
         do {
             boolean eCorreta = perguntasArray();
             if (!eCorreta) {
-                print("Voce tomou o golpe");
+                print(voceErrou());
                 vida--;
             } else if (armaEscolhida.equals("1")) {
-                print("Voce acertou o golpe");
+                print(voceAcertou());
                 vidaDragao = vidaDragao - 1.5;
             } else {
-                print("Voce acertou o golpe");
+                print(voceAcertou());
                 vidaDragao = vidaDragao - 1;
             }
         } while (vida > 0 && vidaDragao > 0);
@@ -118,25 +118,27 @@ public class Game {
         print(
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
 
-        print("Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
+        print(guardiaoCondicional() + "\n\n" + 
+        "Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
 
         print("O Guardião ergue seus braços, que parecem se dividir como múltiplos \"ifs\" e \"elses\", cada movimento emanando uma aura de complexidade crescente.");
 
         print("Ele lança uma onda de energia obscurecida por operadores lógicos confusos, fazendo com que suas percepções vacilem. Você vê ilusões de múltiplos caminhos e sente que, se não resolver rapidamente as condições corretas, poderá ficar preso em uma série de decisões sem retorno.");
 
-        print("O Guardião continua:\n" +
+        print(guardiaoCondicional() + "\n\n" +
+        "O Guardião continua:\n" +
                 "\"Escolha com sabedoria. Verdadeiro ou falso, sim ou não... Cada resposta pode mudar o curso do seu destino.\"");
 
         do {
             boolean eCorreta = perguntasCondicionais();
             if (!eCorreta) {
-                print("Você tomou o golpe!");
+                print(voceErrou());
                 vida--;
             } else if (armaEscolhida.equals("3")) {
-                print("Você acertou um golpe crítico!");
+                print(voceAcertou());
                 vidaGuardiao = vidaGuardiao - 1.5;
             } else {
-                print("Você acertou o golpe!");
+                print(voceAcertou());
                 vidaGuardiao = vidaGuardiao - 1;
             }
 
@@ -156,7 +158,7 @@ public class Game {
                 +
                 "\n" +
                 "Essa criatura é uma personificação do caos que surge de loops descontrolados. Seus braços são como serpentes, girando em círculos e entrelaçando-se, simulando ciclos que não conseguem parar. Seus olhos brilham com variáveis mal-inicializadas e laços sem condição de parada.");
-        print("Senhor dos Loops Eternos:\n" +
+        print(dragaoLoops() + "\n\n" +"Senhor dos Loops Eternos:\n" +
                 "\"Eu sou o ciclo interminável, a repetição sem fim que consome a lógica e aprisiona o tempo! Quem ousa me interromper?\"\n");
 
         print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
@@ -813,8 +815,8 @@ public class Game {
         }
     }
 
-    public void dragaoArray() throws InterruptedException, IOException {
-        print("                   ,   ,\n" +
+    public String dragaoArray() throws InterruptedException, IOException {
+        return "                   ,   ,\n" +
                 "                                        $,  $,     ,\n" +
                 "                                        \"ss.$ss. .s'\n" +
                 "                                ,     .ss$$$$$$$$$$s,\n" +
@@ -856,13 +858,13 @@ public class Game {
                 "  (   $$$Ss/  .$,    .$,,s$$$$$$##S$$$$$$$$$$$$$$$$$$$$$$$$S\"\"        '\n" +
                 "    \\)_$$$$$$$$$$$$$$$$$$$$$$$##\"  $$        `$$.        `$$.\n" +
                 "        `\"S$$$$$$$$$$$$$$$$$#\"      $          `$          `$\"\n" +
-                "            `\"\"\"\"\"\"\"\"\"\"\"\"\"'         '           '           '");
-
+                "            `\"\"\"\"\"\"\"\"\"\"\"\"\"'         '           '           '";
+                
     }
 
-    public void guardiaoCondicional() throws InterruptedException, IOException {
-        print(
-                "            ###1##         #######           \n" +
+    public String guardiaoCondicional() throws InterruptedException, IOException {
+        return
+                        "            ###1##         #######           \n" +
                         "         ###111##           ##111####        \n" +
                         "      ####1111###            ###1111###1     \n" +
                         "     ###1111####             ####11111###    \n " +
@@ -878,11 +880,11 @@ public class Game {
                         "   ##1### ##       ########      ##########  \n " +
                         "    ####            ######           ####    \n " +
                         "      ###          ###  ###          ##      \n " +
-                        "       ###         #      #         ###      \n ");
+                        "       ###         #      #         ###      \n ";
     }
 
-    public void dragaoLoops() throws InterruptedException, IOException {
-        print("                                                                      __----~~~~~~~~~~~------___\n" +
+    public String dragaoLoops() throws InterruptedException, IOException {
+        return  "                                                                      __----~~~~~~~~~~~------___\n" +
                 "                                      .  .   ~~//====......          __--~ ~~\n" +
                 "                      -.            \\_|//     |||\\\\  ~~~~~~::::... /~\n" +
                 "                   ___-==_       _-~o~  \\/    |||  \\\\            _/~~-\n" +
@@ -899,13 +901,13 @@ public class Game {
                 "                                    -_     ~\\      ~~---l__i__i__i--~~_/\n" +
                 "                                    _-~-__   ~)  \\--______________--~~\n" +
                 "                                  //.-~~~-~_--~- |-------~~~~~~~~\n" +
-                "                                         //.-~~~--\\\n");
+                "                                         //.-~~~--\\\n";
 
     }
 
-    public void bugSupremo() throws InterruptedException, IOException {
-        print(
-                "                                                  \n" +
+    public String bugSupremo() throws InterruptedException, IOException {
+        return
+                        "                                                  \n" +
                         "                                                  \n" +
                         "                                                  \n" +
                         "                      ########                    \n" +
@@ -929,12 +931,12 @@ public class Game {
                         "    ##############                ##############  \n" +
                         "          ##                          ####        \n" +
                         "                                                  \n" +
-                        "                                                  \n");
+                        "                                                  \n";
     }
 
-    public void casteloInicio() throws InterruptedException, IOException {
-        print(
-                "                                  |>>>                              \n" +
+    public String casteloInicio() throws InterruptedException, IOException {
+        return
+                        "                                  |>>>                              \n" +
                         "                                  |                                 \n" +
                         "                    |>>>      _  _|_  _         |>>>                \n" +
                         "                    |        |;| |;| |;|        |                   \n" +
@@ -951,52 +953,52 @@ public class Game {
                         "                 ||:   ||.    |+++++++| .    ||: . |                \n" +
                         "              __ ||: . ||: ,  |+++++++|.  . _||_   |                \n" +
                         "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              \n" +
-                        "-~--~                   ~---__|,--~'                  ~~----_____-~'\n");
+                        "-~--~                   ~---__|,--~'                  ~~----_____-~'\n";
     }
 
-    public void vocePerdeu() throws InterruptedException, IOException {
-        print(" __      ______   _____ ______   _____  ______ _____  _____  ______ _    _ \n" +
+    public String vocePerdeu() throws InterruptedException, IOException {
+        return  " __      ______   _____ ______   _____  ______ _____  _____  ______ _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____| |  __ \\|  ____|  __ \\|  __ \\|  ____| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__    | |__) | |__  | |__) | |  | | |__  | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|   |  ___/|  __| |  _  /| |  | |  __| | |  | |\n" +
                 "    \\  / | |__| | |____| |____  | |    | |____| | \\ \\| |__| | |____| |__| |\n" +
                 "     \\/   \\____/ \\_____|______| |_|    |______|_|  \\_\\_____/|______|\\____/ \n" +
                 "                                                                          \n" +
-                "                                                                          ");
+                "                                                                          ";
 
     }
 
-    public void voceGanhou() throws InterruptedException, IOException {
-        print(" __      ______   _____ ______    _____          _   _ _    _  ____  _    _ \n" +
+    public String voceGanhou() throws InterruptedException, IOException {
+        return  " __      ______   _____ ______    _____          _   _ _    _  ____  _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____|  / ____|   /\\   | \\ | | |  | |/ __ \\| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__    | |  __   /  \\  |  \\| | |__| | |  | | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|   | | |_ | / /\\ \\ | . ` |  __  | |  | | |  | |\n" +
                 "    \\  / | |__| | |____| |____  | |__| |/ ____ \\| |\\  | |  | | |__| | |__| |\n" +
                 "     \\/   \\____/ \\_____|______|  \\_____/_/    \\_\\_| \\_|_|  |_|\\____/ \\____/ \n" +
                 "                                                                          \n" +
-                "                                                                          ");
+                "                                                                          ";
 
     }
 
-    public void voceAcertou() throws InterruptedException, IOException{
-        print(" __      ______   _____ ______            _____ ______ _____ _______ ____  _    _ \n" +
-" \\ \\    / / __ \\ / ____|  ____|     /\\   / ____|  ____|  __ \\__   __/ __ \\| |  | |\n" +
-"  \\ \\  / / |  | | |    | |__       /  \\ | |    | |__  | |__) | | | | |  | | |  | |\n" +
-"   \\ \\/ /| |  | | |    |  __|     / /\\ \\| |    |  __| |  _  /  | | | |  | | |  | |\n" +
-"    \\  / | |__| | |____| |____   / ____ \\ |____| |____| | \\ \\  | | | |__| | |__| |\n" +
-"     \\/   \\____/ \\_____|______| /_/    \\_\\_____|______|_|  \\_\\ |_|  \\____/ \\____/ \n" +
-"                                                                                   \n" +
-"                                                                                   ");
+    public String voceAcertou() throws InterruptedException, IOException{
+        return  " __      ______   _____ ______            _____ ______ _____ _______ ____  _    _ \n" +
+                " \\ \\    / / __ \\ / ____|  ____|     /\\   / ____|  ____|  __ \\__   __/ __ \\| |  | |\n" +
+                "  \\ \\  / / |  | | |    | |__       /  \\ | |    | |__  | |__) | | | | |  | | |  | |\n" +
+                "   \\ \\/ /| |  | | |    |  __|     / /\\ \\| |    |  __| |  _  /  | | | |  | | |  | |\n" +
+                "    \\  / | |__| | |____| |____   / ____ \\ |____| |____| | \\ \\  | | | |__| | |__| |\n" +
+                "     \\/   \\____/ \\_____|______| /_/    \\_\\_____|______|_|  \\_\\ |_|  \\____/ \\____/ \n" +
+                "                                                                                   \n" +
+                "                                                                                   ";
 
     }
 
-    public void voceErrou() throws InterruptedException, IOException{
-        print(" __      ______   _____ ______   ______ _____  _____   ____  _    _ \n" +
-" \\ \\    / / __ \\ / ____|  ____| |  ____|  __ \\|  __ \\ / __ \\| |  | |\n" +
-"  \\ \\  / / |  | | |    | |__    | |__  | |__) | |__) | |  | | |  | |\n" +
-"   \\ \\/ /| |  | | |    |  __|   |  __| |  _  /|  _  /| |  | | |  | |\n" +
-"    \\  / | |__| | |____| |____  | |____| | \\ \\| | \\ \\| |__| | |__| |\n" +
-"");
+    public String voceErrou() throws InterruptedException, IOException{
+        return( " __      ______   _____ ______   ______ _____  _____   ____  _    _ \n" +
+                " \\ \\    / / __ \\ / ____|  ____| |  ____|  __ \\|  __ \\ / __ \\| |  | |\n" +
+                "  \\ \\  / / |  | | |    | |__    | |__  | |__) | |__) | |  | | |  | |\n" +
+                "   \\ \\/ /| |  | | |    |  __|   |  __| |  _  /|  _  /| |  | | |  | |\n" +
+                "    \\  / | |__| | |____| |____  | |____| | \\ \\| | \\ \\| |__| | |__| |\n" +
+                "");
 
     }
 }
