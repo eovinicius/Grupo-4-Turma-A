@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class Game {
-    public void iniciar() throws InterruptedException {
+    public void iniciar() throws InterruptedException, IOException {
         while (true) {
             limpaConsole();
             System.out.println("Menu:");
@@ -34,7 +35,7 @@ public class Game {
         }
     }
 
-    public void jogar() throws InterruptedException, RuntimeException {
+    public void jogar() throws InterruptedException, IOException, RuntimeException {
         String nomeJogador;
         String armaEscolhida;
         int vida = 3;
@@ -161,7 +162,7 @@ public class Game {
         print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
     }
 
-    public void creditos() throws InterruptedException {
+    public void creditos() throws InterruptedException, IOException {
 
         print(
                 "Esse jogo foi desenvolvido no primeiro semestre do curso de Analise e Desenvolvimento de Sistemas\n" +
@@ -178,7 +179,7 @@ public class Game {
 
     }
 
-    public void instrucoes() throws InterruptedException {
+    public void instrucoes() throws InterruptedException, IOException {
         String opcao = "";
         limpaConsole();
 
@@ -248,7 +249,7 @@ public class Game {
 
     }
 
-    public boolean perguntasArray() throws InterruptedException {
+    public boolean perguntasArray() throws InterruptedException, IOException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -397,7 +398,7 @@ public class Game {
     }
 
     public boolean validaPergunta(String pergunta, ArrayList<String> Alternativas, String AlternativaCerta)
-            throws InterruptedException {
+            throws InterruptedException, IOException {
         Collections.shuffle(Alternativas);
 
         if (Alternativas.get(0).equals(AlternativaCerta)) {
@@ -428,7 +429,7 @@ public class Game {
 
     }
 
-    public boolean perguntasCondicionais() throws InterruptedException {
+    public boolean perguntasCondicionais() throws InterruptedException, IOException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -619,7 +620,7 @@ public class Game {
         return false;
     }
 
-    public boolean perguntasLoops() throws InterruptedException {
+    public boolean perguntasLoops() throws InterruptedException, IOException {
         Random random = new Random();
         int perguntaAleatoria = 0;
         String pergunta = "";
@@ -776,12 +777,17 @@ public class Game {
 
     }
 
-    public void limpaConsole() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+    public void limpaConsole() throws InterruptedException, IOException {
+        if (System.getProperty("os.name").contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+
     }
 
-    public void print(String mensagem) throws InterruptedException {
+    public void print(String mensagem) throws InterruptedException, IOException {
         limpaConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
@@ -792,7 +798,7 @@ public class Game {
         System.console().readLine();
     }
 
-    public void print(String mensagem, String pergunta) throws InterruptedException {
+    public void print(String mensagem, String pergunta) throws InterruptedException, IOException {
         limpaConsole();
         for (char caractere : mensagem.toCharArray()) {
             System.out.print(caractere);
@@ -807,54 +813,54 @@ public class Game {
         }
     }
 
-    public void dragaoArray() throws InterruptedException {
+    public void dragaoArray() throws InterruptedException, IOException {
         print("                   ,   ,\n" +
-"                                        $,  $,     ,\n" +
-"                                        \"ss.$ss. .s'\n" +
-"                                ,     .ss$$$$$$$$$$s,\n" +
-"                                $. s$$$$$$$$$$$$$$`$$Ss\n" +
-"                                \"$$$$$$$$$$$$$$$$$$o$$$       ,\n" +
-"                               s$$$$$$$$$$$$$$$$$$$$$$$$s,  ,s\n" +
-"                              s$$$$$$$$$\"$$$$$$\"\"\"\"$$$$$$\"$$$$$,\n" +
-"                              s$$$$$$$$$$s\"\"$$$$ssssss\"$$$$$$$$\"\n" +
-"                             s$$$$$$$$$$'         `\"\"\"ss\"$\"$s\"\"\n" +
-"                             s$$$$$$$$$$,              `\"\"\"\"\"$  .s$$s\n" +
-"                             s$$$$$$$$$$$$s,...               `s$$'  `\n" +
-"                         `ssss$$$$$$$$$$$$$$$$$$$$####s.     .$$\"$.   , s-\n" +
-"                           `\"\"\"\"$$$$$$$$$$$$$$$$$$$$#####$$$$$$\"     $.$'\n" +
-"                                 \"$$$$$$$$$$$$$$$$$$$$$####s\"\"     .$$$|\n" +
-"                                  \"$$$$$$$$$$$$$$$$$$$$$$$$##s    .$$\" $\n" +
-"                                   $$\"\"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\"   `\n" +
-"                                  $$\"  \"$\"$$$$$$$$$$$$$$$$$$$$S\"\"\"\"'\n" +
-"                             ,   ,\"     '  $$$$$$$$$$$$$$$$####s\n" +
-"                             $.          .s$$$$$$$$$$$$$$$$$####\"\n" +
-"                 ,           \"$s.   ..ssS$$$$$$$$$$$$$$$$$$$####\"\n" +
-"                 $           .$$$S$$$$$$$$$$$$$$$$$$$$$$$$#####\"\n" +
-"                 Ss     ..sS$$$$$$$$$$$$$$$$$$$$$$$$$$$######\"\"\n" +
-"                  \"$$sS$$$$$$$$$$$$$$$$$$$$$$$$$$$########\"\n" +
-"           ,      s$$$$$$$$$$$$$$$$$$$$$$$$#########\"\"'\n" +
-"           $    s$$$$$$$$$$$$$$$$$$$$$#######\"\"'      s'         ,\n" +
-"           $$..$$$$$$$$$$$$$$$$$$######\"'       ....,$$....    ,$\n" +
-"            \"$$$$$$$$$$$$$$$######\"' ,     .sS$$$$$$$$$$$$$$$$s$$\n" +
-"              $$$$$$$$$$$#####\"     $, .s$$$$$$$$$$$$$$$$$$$$$$$$s.\n" +
-"   )          $$$$$$$$$$$#####'      `$$$$$$$$$###########$$$$$$$$$$$.\n" +
-"  ((          $$$$$$$$$$$#####       $$$$$$$$###\"       \"####$$$$$$$$$$\n" +
-"  ) \\         $$$$$$$$$$$$####.     $$$$$$###\"             \"###$$$$$$$$$   s'\n" +
-" (   )        $$$$$$$$$$$$$####.   $$$$$###\"                ####$$$$$$$$s$$'\n" +
-" )  ( (       $$\"$$$$$$$$$$$#####.$$$$$###'                 .###$$$$$$$$$$\"\n" +
-" (  )  )   _,$\"   $$$$$$$$$$$$######.$$##'                .###$$$$$$$$$$\n" +
-" ) (  ( \\.         \"$$$$$$$$$$$$$#######,,,.          ..####$$$$$$$$$$$\"\n" +
-"(   )$ )  )        ,$$$$$$$$$$$$$$$$$$####################$$$$$$$$$$$\"\n" +
-"(   ($$  ( \\     _sS\"  `\"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$S$$,\n" +
-" )  )$$$s ) )  .      .   `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\"'  `$$\n" +
-"  (   $$$Ss/  .$,    .$,,s$$$$$$##S$$$$$$$$$$$$$$$$$$$$$$$$S\"\"        '\n" +
-"    \\)_$$$$$$$$$$$$$$$$$$$$$$$##\"  $$        `$$.        `$$.\n" +
-"        `\"S$$$$$$$$$$$$$$$$$#\"      $          `$          `$\"\n" +
-"            `\"\"\"\"\"\"\"\"\"\"\"\"\"'         '           '           '");
+                "                                        $,  $,     ,\n" +
+                "                                        \"ss.$ss. .s'\n" +
+                "                                ,     .ss$$$$$$$$$$s,\n" +
+                "                                $. s$$$$$$$$$$$$$$`$$Ss\n" +
+                "                                \"$$$$$$$$$$$$$$$$$$o$$$       ,\n" +
+                "                               s$$$$$$$$$$$$$$$$$$$$$$$$s,  ,s\n" +
+                "                              s$$$$$$$$$\"$$$$$$\"\"\"\"$$$$$$\"$$$$$,\n" +
+                "                              s$$$$$$$$$$s\"\"$$$$ssssss\"$$$$$$$$\"\n" +
+                "                             s$$$$$$$$$$'         `\"\"\"ss\"$\"$s\"\"\n" +
+                "                             s$$$$$$$$$$,              `\"\"\"\"\"$  .s$$s\n" +
+                "                             s$$$$$$$$$$$$s,...               `s$$'  `\n" +
+                "                         `ssss$$$$$$$$$$$$$$$$$$$$####s.     .$$\"$.   , s-\n" +
+                "                           `\"\"\"\"$$$$$$$$$$$$$$$$$$$$#####$$$$$$\"     $.$'\n" +
+                "                                 \"$$$$$$$$$$$$$$$$$$$$$####s\"\"     .$$$|\n" +
+                "                                  \"$$$$$$$$$$$$$$$$$$$$$$$$##s    .$$\" $\n" +
+                "                                   $$\"\"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\"   `\n" +
+                "                                  $$\"  \"$\"$$$$$$$$$$$$$$$$$$$$S\"\"\"\"'\n" +
+                "                             ,   ,\"     '  $$$$$$$$$$$$$$$$####s\n" +
+                "                             $.          .s$$$$$$$$$$$$$$$$$####\"\n" +
+                "                 ,           \"$s.   ..ssS$$$$$$$$$$$$$$$$$$$####\"\n" +
+                "                 $           .$$$S$$$$$$$$$$$$$$$$$$$$$$$$#####\"\n" +
+                "                 Ss     ..sS$$$$$$$$$$$$$$$$$$$$$$$$$$$######\"\"\n" +
+                "                  \"$$sS$$$$$$$$$$$$$$$$$$$$$$$$$$$########\"\n" +
+                "           ,      s$$$$$$$$$$$$$$$$$$$$$$$$#########\"\"'\n" +
+                "           $    s$$$$$$$$$$$$$$$$$$$$$#######\"\"'      s'         ,\n" +
+                "           $$..$$$$$$$$$$$$$$$$$$######\"'       ....,$$....    ,$\n" +
+                "            \"$$$$$$$$$$$$$$$######\"' ,     .sS$$$$$$$$$$$$$$$$s$$\n" +
+                "              $$$$$$$$$$$#####\"     $, .s$$$$$$$$$$$$$$$$$$$$$$$$s.\n" +
+                "   )          $$$$$$$$$$$#####'      `$$$$$$$$$###########$$$$$$$$$$$.\n" +
+                "  ((          $$$$$$$$$$$#####       $$$$$$$$###\"       \"####$$$$$$$$$$\n" +
+                "  ) \\         $$$$$$$$$$$$####.     $$$$$$###\"             \"###$$$$$$$$$   s'\n" +
+                " (   )        $$$$$$$$$$$$$####.   $$$$$###\"                ####$$$$$$$$s$$'\n" +
+                " )  ( (       $$\"$$$$$$$$$$$#####.$$$$$###'                 .###$$$$$$$$$$\"\n" +
+                " (  )  )   _,$\"   $$$$$$$$$$$$######.$$##'                .###$$$$$$$$$$\n" +
+                " ) (  ( \\.         \"$$$$$$$$$$$$$#######,,,.          ..####$$$$$$$$$$$\"\n" +
+                "(   )$ )  )        ,$$$$$$$$$$$$$$$$$$####################$$$$$$$$$$$\"\n" +
+                "(   ($$  ( \\     _sS\"  `\"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$S$$,\n" +
+                " )  )$$$s ) )  .      .   `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\"'  `$$\n" +
+                "  (   $$$Ss/  .$,    .$,,s$$$$$$##S$$$$$$$$$$$$$$$$$$$$$$$$S\"\"        '\n" +
+                "    \\)_$$$$$$$$$$$$$$$$$$$$$$$##\"  $$        `$$.        `$$.\n" +
+                "        `\"S$$$$$$$$$$$$$$$$$#\"      $          `$          `$\"\n" +
+                "            `\"\"\"\"\"\"\"\"\"\"\"\"\"'         '           '           '");
 
     }
 
-    public void guardiaoCondicional() throws InterruptedException {
+    public void guardiaoCondicional() throws InterruptedException, IOException {
         print(
                 "            ###1##         #######           \n" +
                         "         ###111##           ##111####        \n" +
@@ -875,58 +881,58 @@ public class Game {
                         "       ###         #      #         ###      \n ");
     }
 
-    public void dragaoLoops() throws InterruptedException {
+    public void dragaoLoops() throws InterruptedException, IOException {
         print("                                                                      __----~~~~~~~~~~~------___\n" +
-"                                      .  .   ~~//====......          __--~ ~~\n" +
-"                      -.            \\_|//     |||\\\\  ~~~~~~::::... /~\n" +
-"                   ___-==_       _-~o~  \\/    |||  \\\\            _/~~-\n" +
-"           __---~~~.==~||\\=_    -_--~/_-~|-   |\\\\   \\\\        _/~\n" +
-"       _-~~     .=~    |  \\\\-_    '-~7  /-   /  ||    \\      /\n" +
-"     .~       .~       |   \\\\ -_    /  /-   /   ||      \\   /\n" +
-"    /  ____  /         |     \\\\ ~-_/  /|- _/   .||       \\ /\n" +
-"    |~~    ~~|--~~~~--_ \\     ~==-/   | \\~--===~~        .\\\n" +
-"             '         ~-|      /|    |-~\\~~       __--~~\n" +
-"                         |-~~-_/ |    |   ~\\_   _-~            /\\\n" +
-"                              /  \\     \\__   \\/~                \\__\n" +
-"                          _--~ _/ | .-~~____--~-/                  ~~==.\n" +
-"                         ((->/~   '.|||' -_|    ~~-/ ,              . _||\n" +
-"                                    -_     ~\\      ~~---l__i__i__i--~~_/\n" +
-"                                    _-~-__   ~)  \\--______________--~~\n" +
-"                                  //.-~~~-~_--~- |-------~~~~~~~~\n" +
-"                                         //.-~~~--\\\n");
+                "                                      .  .   ~~//====......          __--~ ~~\n" +
+                "                      -.            \\_|//     |||\\\\  ~~~~~~::::... /~\n" +
+                "                   ___-==_       _-~o~  \\/    |||  \\\\            _/~~-\n" +
+                "           __---~~~.==~||\\=_    -_--~/_-~|-   |\\\\   \\\\        _/~\n" +
+                "       _-~~     .=~    |  \\\\-_    '-~7  /-   /  ||    \\      /\n" +
+                "     .~       .~       |   \\\\ -_    /  /-   /   ||      \\   /\n" +
+                "    /  ____  /         |     \\\\ ~-_/  /|- _/   .||       \\ /\n" +
+                "    |~~    ~~|--~~~~--_ \\     ~==-/   | \\~--===~~        .\\\n" +
+                "             '         ~-|      /|    |-~\\~~       __--~~\n" +
+                "                         |-~~-_/ |    |   ~\\_   _-~            /\\\n" +
+                "                              /  \\     \\__   \\/~                \\__\n" +
+                "                          _--~ _/ | .-~~____--~-/                  ~~==.\n" +
+                "                         ((->/~   '.|||' -_|    ~~-/ ,              . _||\n" +
+                "                                    -_     ~\\      ~~---l__i__i__i--~~_/\n" +
+                "                                    _-~-__   ~)  \\--______________--~~\n" +
+                "                                  //.-~~~-~_--~- |-------~~~~~~~~\n" +
+                "                                         //.-~~~--\\\n");
 
     }
 
-    public void bugSupremo() throws InterruptedException{
+    public void bugSupremo() throws InterruptedException, IOException {
         print(
-            "                                                  \n" +
-            "                                                  \n" +
-            "                                                  \n" +
-            "                      ########                    \n" +
-            "                  ################                \n" +
-            "                  ################                \n" +
-            "                ####################              \n" +
-            "                ####################              \n" +
-            "                ####################              \n" +
-            "  ######        ##################          ####  \n" +
-            "      ####      ####################      ####    \n" +
-            "        ##    ####  ##########    ##      ##      \n" +
-            "        ##    ####  ##########    ##      ##      \n" +
-            "      ####      ####################      ##      \n" +
-            "      ##        ####################        ##    \n" +
-            "    ####        ####################        ##    \n" +
-            "    ####        ##  ##########    ##        ####  \n" +
-            "      ##      ##      ##    ##    ####      ##    \n" +
-            "      ##########    ##      ####    ########      \n" +
-            "                    ##        ##                  \n" +
-            "                ####          ####                \n" +
-            "    ##############                ##############  \n" +
-            "          ##                          ####        \n" +
-            "                                                  \n" +
-            "                                                  \n");
+                "                                                  \n" +
+                        "                                                  \n" +
+                        "                                                  \n" +
+                        "                      ########                    \n" +
+                        "                  ################                \n" +
+                        "                  ################                \n" +
+                        "                ####################              \n" +
+                        "                ####################              \n" +
+                        "                ####################              \n" +
+                        "  ######        ##################          ####  \n" +
+                        "      ####      ####################      ####    \n" +
+                        "        ##    ####  ##########    ##      ##      \n" +
+                        "        ##    ####  ##########    ##      ##      \n" +
+                        "      ####      ####################      ##      \n" +
+                        "      ##        ####################        ##    \n" +
+                        "    ####        ####################        ##    \n" +
+                        "    ####        ##  ##########    ##        ####  \n" +
+                        "      ##      ##      ##    ##    ####      ##    \n" +
+                        "      ##########    ##      ####    ########      \n" +
+                        "                    ##        ##                  \n" +
+                        "                ####          ####                \n" +
+                        "    ##############                ##############  \n" +
+                        "          ##                          ####        \n" +
+                        "                                                  \n" +
+                        "                                                  \n");
     }
 
-    public void casteloInicio() throws InterruptedException {
+    public void casteloInicio() throws InterruptedException, IOException {
         print(
                 "                                  |>>>                              \n" +
                         "                                  |                                 \n" +
@@ -948,27 +954,27 @@ public class Game {
                         "-~--~                   ~---__|,--~'                  ~~----_____-~'\n");
     }
 
-    public void vocePerdeu() throws InterruptedException{
+    public void vocePerdeu() throws InterruptedException, IOException {
         print(" __      ______   _____ ______   _____  ______ _____  _____  ______ _    _ \n" +
-        " \\ \\    / / __ \\ / ____|  ____| |  __ \\|  ____|  __ \\|  __ \\|  ____| |  | |\n" +
-        "  \\ \\  / / |  | | |    | |__    | |__) | |__  | |__) | |  | | |__  | |  | |\n" +
-        "   \\ \\/ /| |  | | |    |  __|   |  ___/|  __| |  _  /| |  | |  __| | |  | |\n" +
-        "    \\  / | |__| | |____| |____  | |    | |____| | \\ \\| |__| | |____| |__| |\n" +
-        "     \\/   \\____/ \\_____|______| |_|    |______|_|  \\_\\_____/|______|\\____/ \n" +
-        "                                                                          \n" +
-        "                                                                          ");
-        
+                " \\ \\    / / __ \\ / ____|  ____| |  __ \\|  ____|  __ \\|  __ \\|  ____| |  | |\n" +
+                "  \\ \\  / / |  | | |    | |__    | |__) | |__  | |__) | |  | | |__  | |  | |\n" +
+                "   \\ \\/ /| |  | | |    |  __|   |  ___/|  __| |  _  /| |  | |  __| | |  | |\n" +
+                "    \\  / | |__| | |____| |____  | |    | |____| | \\ \\| |__| | |____| |__| |\n" +
+                "     \\/   \\____/ \\_____|______| |_|    |______|_|  \\_\\_____/|______|\\____/ \n" +
+                "                                                                          \n" +
+                "                                                                          ");
+
     }
 
-    public void voceGanhou() throws InterruptedException{
+    public void voceGanhou() throws InterruptedException, IOException {
         print(" __      ______   _____ ______    _____          _   _ _    _  ____  _    _ \n" +
-" \\ \\    / / __ \\ / ____|  ____|  / ____|   /\\   | \\ | | |  | |/ __ \\| |  | |\n" +
-"  \\ \\  / / |  | | |    | |__    | |  __   /  \\  |  \\| | |__| | |  | | |  | |\n" +
-"   \\ \\/ /| |  | | |    |  __|   | | |_ | / /\\ \\ | . ` |  __  | |  | | |  | |\n" +
-"    \\  / | |__| | |____| |____  | |__| |/ ____ \\| |\\  | |  | | |__| | |__| |\n" +
-"     \\/   \\____/ \\_____|______|  \\_____/_/    \\_\\_| \\_|_|  |_|\\____/ \\____/ \n" +
-"                                                                          \n" +
-"                                                                          ");
+                " \\ \\    / / __ \\ / ____|  ____|  / ____|   /\\   | \\ | | |  | |/ __ \\| |  | |\n" +
+                "  \\ \\  / / |  | | |    | |__    | |  __   /  \\  |  \\| | |__| | |  | | |  | |\n" +
+                "   \\ \\/ /| |  | | |    |  __|   | | |_ | / /\\ \\ | . ` |  __  | |  | | |  | |\n" +
+                "    \\  / | |__| | |____| |____  | |__| |/ ____ \\| |\\  | |  | | |__| | |__| |\n" +
+                "     \\/   \\____/ \\_____|______|  \\_____/_/    \\_\\_| \\_|_|  |_|\\____/ \\____/ \n" +
+                "                                                                          \n" +
+                "                                                                          ");
 
     }
 }
