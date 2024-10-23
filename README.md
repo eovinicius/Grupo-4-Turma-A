@@ -1,26 +1,15 @@
-# Funções para Exibição de Mensagens em Estilo RPG
+# Terminal RPG - Jogo Educacional para Prática de Algoritmos e Lógica
 
-Este documento descreve as funções utilizadas para exibir mensagens em um console, simulando um efeito de digitação.
+### Descrição
 
-## Código
+**Terminal RPG** é um jogo baseado em texto que combina desafios de lógica e algoritmos com uma aventura de RPG em um terminal. O objetivo principal é ajudar os jogadores a praticar e aprimorar suas habilidades de programação, enquanto exploram um mundo fictício cheio de monstros, tesouros e desafios intelectuais.
 
-```java
-public static void exibirMensagem(String mensagem) {
-    try {
-        limparConsole();
-        for (char caractere : mensagem.toCharArray()) {
-            System.out.print(caractere);
-            System.out.flush();
-            Thread.sleep(10); // Atraso de 10 milissegundos entre os caracteres
-        }
-        System.out.println(); // Adiciona uma nova linha após a mensagem
-    } catch (InterruptedException e) {
-        e.printStackTrace(); // Tratamento de exceção
-    }
-}
+O jogo é desenvolvido em **Java** e utiliza **ASCII art** para dar vida aos elementos visuais do jogo no terminal. Cada batalha, quebra-cabeça ou encontro de monstros exige a resolução de problemas de programação e lógica.
 
-// Limpa o console
-public static void limparConsole() {
-    System.out.print("\033[H\033[2J"); // Sequência ANSI para limpar o console
-    System.out.flush(); // Atualiza a saída
-}
+---
+
+### Objetivo do Jogo
+
+Os jogadores assumem o papel do personagem que explora o mundo repleto de criaturas, enfrenta inimigos e resolve desafios. A cada encontro, o jogador deve resolver problemas de algoritmos e lógica para avançar, com níveis de dificuldade progressivos para aprimorar suas habilidades.
+
+---
