@@ -4,8 +4,9 @@ public class Main {
         try {
             game.iniciar();
         } catch (Exception e) {
-            System.out.println("Erro inesperado, reiniciando o jogo...");
-            Thread.sleep(4000);
+            game.limpaConsole();
+            System.out.println("Erro inesperado, reiniciando o jogo aguarde...");
+            Thread.sleep(3000);
             game.iniciar();
         }
 
