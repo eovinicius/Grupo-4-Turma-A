@@ -39,3 +39,9 @@ Os jogadores assumem o papel do personagem que explora o mundo repleto de criatu
 Durante o jogo, você será apresentado a várias situações e desafios. Sua tarefa é resolver problemas de lógica e algoritmos para avançar. Cada desafio pode ser resolvido diretamente no terminal, e o feedback será dado conforme suas respostas.
 
 ---
+
+### Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma _issue_ ou enviar um _pull request_ com melhorias, novos desafios ou funcionalidades.
+
+---
