@@ -1,6 +1,4 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Collections;
 import java.util.Random;
 
@@ -614,8 +612,165 @@ public class Game {
         return false;
     }
 
-    public void perguntasLoops() {
+    public boolean perguntasLoops() throws InterruptedException {
+        Random random = new Random();
+        int perguntaAleatoria = 0;
+        String pergunta = "";
+        ArrayList<String> Alternativas = new ArrayList<String>();
+        String AlternativaCerta = "";
+        perguntaAleatoria = random.nextInt(10) + 1;
 
+        switch (perguntaAleatoria) {
+            case 1:
+                pergunta = "Qual é a saída do seguinte código?\n" +
+                        
+                "for (int i = 0; i < 5; i++) {\n" +
+                        "   System.out.print(i + \" \");\n" +
+                "}\n" +
+                Alternativas.add(" 0 1 2 3 4");
+                Alternativas.add("1 2 3 4 5");
+                Alternativas.add("0 1 2 3 4 5");
+                Alternativas.add("1 2 3 4");
+                Alternativas.add("0 1 2 3 4 5 6");
+                AlternativaCerta = " 0 1 2 3 4";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 2:
+                pergunta = "Qual estrutura de loop é mais adequada para iterar sobre todos os elementos de um array?\n" +
+    
+
+                Alternativas.add("for");
+                Alternativas.add("while");
+                Alternativas.add("do-while");
+                Alternativas.add("for-each");
+                Alternativas.add("if");
+                AlternativaCerta = "for-each";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 3:
+                pergunta = "Qual é o resultado do seguinte código?\n" +
+                    
+                        "int sum = 0;\n" +
+                        "for (int i = 1; i <= 5; i++) {\n" +
+                            "sum += i;\n" +
+                        "}\n" +
+                        "System.out.println(sum);\n" +
+                        
+
+                Alternativas.add("5");
+                Alternativas.add("10");
+                Alternativas.add("15");
+                Alternativas.add("20");
+                Alternativas.add("25");
+                AlternativaCerta = "15";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 4:
+                pergunta = "O que acontece se a condição de um loop while nunca for verdadeira?\n" +
+                    
+
+                Alternativas.add("O loop executa uma vez");
+                Alternativas.add("O loop entra em um loop infinito");
+                Alternativas.add("O loop não é executado");
+                Alternativas.add("O loop executa indefinidamente");
+                Alternativas.add("O loop gera um erro de compilação");
+                AlternativaCerta = "O loop não é executado";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 5:
+                pergunta = "Qual é a saída do seguinte código?\n"+
+
+                        "int count = 0;\n" +
+                        "while (count < 3) {\n" +
+                            "System.out.println(\"Hello\");\n" +
+                            "count++;\n" +
+                        "}\n" +
+                    
+
+                Alternativas.add("Hello Hello Hello");
+                Alternativas.add("Hello Hello");
+                Alternativas.add("Hello");
+                Alternativas.add("Hello Hello Hello Hello");
+                Alternativas.add("Nenhuma saída");
+                AlternativaCerta = "Hello Hello Hello";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 6:
+                pergunta = "O que o seguinte trecho de código imprime?\n"+
+                  
+                "for (int i = 0; i < 10; i += 2) {\n" +
+                    "System.out.print(i + \" \");\n" +
+                "}\n" +
+                
+
+                
+
+                Alternativas.add("0 1 2 3 4 5 6 7 8 9");
+                Alternativas.add("0 2 4 6 8");
+                Alternativas.add("1 3 5 7 9");
+                Alternativas.add("0 1 3 5 7 9");
+                Alternativas.add("1 2 3 4 5");
+                AlternativaCerta = "0 2 4 6 8";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 7:
+                pergunta = "O que ocorre se você usar um break dentro de um loop for?\n";
+
+                Alternativas.add("O loop continua até a última iteração");
+                Alternativas.add("O loop é encerrado imediatamente");
+                Alternativas.add("O loop reinicia a contagem");
+                Alternativas.add("O loop entra em um erro");
+                Alternativas.add(" O loop ignora a iteração atual");
+                AlternativaCerta = " O loop é encerrado imediatamente ";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 8:
+                pergunta = "Qual é a saída do seguinte código?\n"+
+
+                        "for (int i = 0; i < 3; i++) {\n" +
+                        "   for (int j = 0; j < 2; j++) {\n" +
+                        "   System.out.print(i + j + \" \");\n" +
+                        " }\n" +
+                        "}\n" +
+
+                Alternativas.add("0 1 1 2 2 3");
+                Alternativas.add(" 0 1 1 2 2 3 3 4");
+                Alternativas.add("0 1 2 3 4");
+                Alternativas.add("0 1 0 1 1 2");
+                Alternativas.add("Nenhuma saída");
+                AlternativaCerta = "0 1 1 2 2 3";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 9:
+                pergunta = "O que o seguinte código fará?\n" +
+                        "int i = 0;\n" +
+                        "do {\n" +
+                        "System.out.print(i + \" \");\n" +
+                        "i++;\n" +
+                        "} while (i < 5);\n" +
+                       
+
+                Alternativas.add("Imprime 0 1 2 3 4");
+                Alternativas.add("Imprime 1 2 3 4 5");
+                Alternativas.add("Imprime 0 1 2 3 4 5");
+                Alternativas.add("Imprime 1 2 3 4");
+                Alternativas.add("Não imprime nada");
+                AlternativaCerta = "Imprime 0 1 2 3 4";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+
+            case 10:
+                pergunta = "Qual é o propósito do comando continue em um loop?\n" +
+                    
+
+                Alternativas.add("Encerrar o loop");
+                Alternativas.add("Ignorar a iteração atual e continuar com a próxima");
+                Alternativas.add("Reiniciar o loop");
+                Alternativas.add("Interromper a execução do programa");
+                Alternativas.add("Criar um novo loop");
+                AlternativaCerta = "Ignorar a iteração atual e continuar com a próxima";
+                return validaPergunta(pergunta, Alternativas, AlternativaCerta);
+        }
+        return false;
     }
 
     public void perguntasBossFinal() {
@@ -679,6 +834,7 @@ public class Game {
     }
 
     public void dragaoLoops(){
+        
         
     }
 
