@@ -1,12 +1,18 @@
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Game {
     public void iniciar() throws InterruptedException, IOException {
         while (true) {
             limpaConsole();
+            musicaMenu();
             System.out.println("Menu:");
             System.out.println("0 - Jogar");
             System.out.println("1 - Instruções");
@@ -118,15 +124,15 @@ public class Game {
         print(
                 "No dia seguinte, você segue sua jornada, que perdura durante 3 dias, que é quando você encontra um local similar a cavernas, com 3 diferentes entradas, onde existe uma mensagem em cada uma se deseja acabar com o reino de algoritmólis entre aqui, na outra se deseja encontrar o bug supremo entre aqui e na última se esta em busca de mais poder, entre aqui. Logo, depois de alguns segundos raciocinando, você percebe que existe uma possibilidade de que todas as entradas sejam apenas condicionais que te levem ao mesmo lugar, o Guardião das condicionais. Mas como se tratava apenas de um pensamento, você entra na caverna com a mensagem de encontrar o Bug Supremo, logo depois de entrar, você percebe que estava certo e já encontra diretamente o tão temido guardião das condicionais, é quando você percebe que é comum que todas as criaturas controladas pelo Bug Supremo conseguem falar:");
 
-        print(guardiaoCondicional() + "\n\n" + 
-        "Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
+        print(guardiaoCondicional() + "\n\n" +
+                "Guardião das Condicionais: Eu sou o divisor de caminhos, a bifurcação eterna que decide destinos. Muitos caíram ao tentar entender minhas ramificações, presos em loops sem fim ou em decisões erradas. Se você deseja passar, Debugger, precisará provar que conhece a lógica por trás de cada escolha. Uma condição errada... e sua jornada terminará aqui!");
 
         print("O Guardião ergue seus braços, que parecem se dividir como múltiplos \"ifs\" e \"elses\", cada movimento emanando uma aura de complexidade crescente.");
 
         print("Ele lança uma onda de energia obscurecida por operadores lógicos confusos, fazendo com que suas percepções vacilem. Você vê ilusões de múltiplos caminhos e sente que, se não resolver rapidamente as condições corretas, poderá ficar preso em uma série de decisões sem retorno.");
 
         print(guardiaoCondicional() + "\n\n" +
-        "O Guardião continua:\n" +
+                "O Guardião continua:\n" +
                 "\"Escolha com sabedoria. Verdadeiro ou falso, sim ou não... Cada resposta pode mudar o curso do seu destino.\"");
 
         do {
@@ -158,7 +164,7 @@ public class Game {
                 +
                 "\n" +
                 "Essa criatura é uma personificação do caos que surge de loops descontrolados. Seus braços são como serpentes, girando em círculos e entrelaçando-se, simulando ciclos que não conseguem parar. Seus olhos brilham com variáveis mal-inicializadas e laços sem condição de parada.");
-        print(dragaoLoops() + "\n\n" +"Senhor dos Loops Eternos:\n" +
+        print(dragaoLoops() + "\n\n" + "Senhor dos Loops Eternos:\n" +
                 "\"Eu sou o ciclo interminável, a repetição sem fim que consome a lógica e aprisiona o tempo! Quem ousa me interromper?\"\n");
 
         print("Ele ergue suas mãos gigantescas, e o ar ao seu redor começa a girar em padrões hipnóticos, como um loop infinito prestes a sair de controle.\n");
@@ -859,32 +865,31 @@ public class Game {
                 "    \\)_$$$$$$$$$$$$$$$$$$$$$$$##\"  $$        `$$.        `$$.\n" +
                 "        `\"S$$$$$$$$$$$$$$$$$#\"      $          `$          `$\"\n" +
                 "            `\"\"\"\"\"\"\"\"\"\"\"\"\"'         '           '           '";
-                
+
     }
 
     public String guardiaoCondicional() throws InterruptedException, IOException {
-        return
-                        "            ###1##         #######           \n" +
-                        "         ###111##           ##111####        \n" +
-                        "      ####1111###            ###1111###1     \n" +
-                        "     ###1111####             ####11111###    \n " +
-                        "   ###11#1#1####   ##    ##  #####1#1#1###1  \n " +
-                        "  ###11#1#11#####  ########  #####1#1##11##1 \n " +
-                        " ###11##1#11######  ###### #######1##1##1### \n " +
-                        "####1##11##1######################1##1###1###\n " +
-                        "###11##11##1#####################1###1###1###\n " +
-                        "###1####1###1###################11###1###11##\n " +
-                        " ##11###1####1##################1###1####1###\n " +
-                        " ###1####1##########################1####1##1\n " +
-                        "  ##1########  ###############  ########1### \n " +
-                        "   ##1### ##       ########      ##########  \n " +
-                        "    ####            ######           ####    \n " +
-                        "      ###          ###  ###          ##      \n " +
-                        "       ###         #      #         ###      \n ";
+        return "            ###1##         #######           \n" +
+                "         ###111##           ##111####        \n" +
+                "      ####1111###            ###1111###1     \n" +
+                "     ###1111####             ####11111###    \n " +
+                "   ###11#1#1####   ##    ##  #####1#1#1###1  \n " +
+                "  ###11#1#11#####  ########  #####1#1##11##1 \n " +
+                " ###11##1#11######  ###### #######1##1##1### \n " +
+                "####1##11##1######################1##1###1###\n " +
+                "###11##11##1#####################1###1###1###\n " +
+                "###1####1###1###################11###1###11##\n " +
+                " ##11###1####1##################1###1####1###\n " +
+                " ###1####1##########################1####1##1\n " +
+                "  ##1########  ###############  ########1### \n " +
+                "   ##1### ##       ########      ##########  \n " +
+                "    ####            ######           ####    \n " +
+                "      ###          ###  ###          ##      \n " +
+                "       ###         #      #         ###      \n ";
     }
 
     public String dragaoLoops() throws InterruptedException, IOException {
-        return  "                                                                      __----~~~~~~~~~~~------___\n" +
+        return "                                                                      __----~~~~~~~~~~~------___\n" +
                 "                                      .  .   ~~//====......          __--~ ~~\n" +
                 "                      -.            \\_|//     |||\\\\  ~~~~~~::::... /~\n" +
                 "                   ___-==_       _-~o~  \\/    |||  \\\\            _/~~-\n" +
@@ -906,58 +911,56 @@ public class Game {
     }
 
     public String bugSupremo() throws InterruptedException, IOException {
-        return
-                        "                                                  \n" +
-                        "                                                  \n" +
-                        "                                                  \n" +
-                        "                      ########                    \n" +
-                        "                  ################                \n" +
-                        "                  ################                \n" +
-                        "                ####################              \n" +
-                        "                ####################              \n" +
-                        "                ####################              \n" +
-                        "  ######        ##################          ####  \n" +
-                        "      ####      ####################      ####    \n" +
-                        "        ##    ####  ##########    ##      ##      \n" +
-                        "        ##    ####  ##########    ##      ##      \n" +
-                        "      ####      ####################      ##      \n" +
-                        "      ##        ####################        ##    \n" +
-                        "    ####        ####################        ##    \n" +
-                        "    ####        ##  ##########    ##        ####  \n" +
-                        "      ##      ##      ##    ##    ####      ##    \n" +
-                        "      ##########    ##      ####    ########      \n" +
-                        "                    ##        ##                  \n" +
-                        "                ####          ####                \n" +
-                        "    ##############                ##############  \n" +
-                        "          ##                          ####        \n" +
-                        "                                                  \n" +
-                        "                                                  \n";
+        return "                                                  \n" +
+                "                                                  \n" +
+                "                                                  \n" +
+                "                      ########                    \n" +
+                "                  ################                \n" +
+                "                  ################                \n" +
+                "                ####################              \n" +
+                "                ####################              \n" +
+                "                ####################              \n" +
+                "  ######        ##################          ####  \n" +
+                "      ####      ####################      ####    \n" +
+                "        ##    ####  ##########    ##      ##      \n" +
+                "        ##    ####  ##########    ##      ##      \n" +
+                "      ####      ####################      ##      \n" +
+                "      ##        ####################        ##    \n" +
+                "    ####        ####################        ##    \n" +
+                "    ####        ##  ##########    ##        ####  \n" +
+                "      ##      ##      ##    ##    ####      ##    \n" +
+                "      ##########    ##      ####    ########      \n" +
+                "                    ##        ##                  \n" +
+                "                ####          ####                \n" +
+                "    ##############                ##############  \n" +
+                "          ##                          ####        \n" +
+                "                                                  \n" +
+                "                                                  \n";
     }
 
     public String casteloInicio() throws InterruptedException, IOException {
-        return
-                        "                                  |>>>                              \n" +
-                        "                                  |                                 \n" +
-                        "                    |>>>      _  _|_  _         |>>>                \n" +
-                        "                    |        |;| |;| |;|        |                   \n" +
-                        "                _  _|_  _    \\\\.    .  /    _  _|_  _               \n" +
-                        "               |;|_|;|_|;|    \\\\:. ,  /    |;|_|;|_|;|              \n" +
-                        "               \\\\..      /    ||;   . |    \\\\.    .  /              \n" +
-                        "                \\\\.  ,  /     ||:  .  |     \\\\:  .  /               \n" +
-                        "                 ||:   |_   _ ||_ . _ | _   _||:   |                \n" +
-                        "                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |                \n" +
-                        "                 ||:   ||.    .     .      . ||:  .|                \n" +
-                        "                 ||: . || .     . .   .  ,   ||:   |       \\,/      \n" +
-                        "                 ||:   ||:  ,  _______   .   ||: , |            /`\\ \n" +
-                        "                 ||:   || .   /+++++++\\    . ||:   |                \n" +
-                        "                 ||:   ||.    |+++++++| .    ||: . |                \n" +
-                        "              __ ||: . ||: ,  |+++++++|.  . _||_   |                \n" +
-                        "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              \n" +
-                        "-~--~                   ~---__|,--~'                  ~~----_____-~'\n";
+        return "                                  |>>>                              \n" +
+                "                                  |                                 \n" +
+                "                    |>>>      _  _|_  _         |>>>                \n" +
+                "                    |        |;| |;| |;|        |                   \n" +
+                "                _  _|_  _    \\\\.    .  /    _  _|_  _               \n" +
+                "               |;|_|;|_|;|    \\\\:. ,  /    |;|_|;|_|;|              \n" +
+                "               \\\\..      /    ||;   . |    \\\\.    .  /              \n" +
+                "                \\\\.  ,  /     ||:  .  |     \\\\:  .  /               \n" +
+                "                 ||:   |_   _ ||_ . _ | _   _||:   |                \n" +
+                "                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |                \n" +
+                "                 ||:   ||.    .     .      . ||:  .|                \n" +
+                "                 ||: . || .     . .   .  ,   ||:   |       \\,/      \n" +
+                "                 ||:   ||:  ,  _______   .   ||: , |            /`\\ \n" +
+                "                 ||:   || .   /+++++++\\    . ||:   |                \n" +
+                "                 ||:   ||.    |+++++++| .    ||: . |                \n" +
+                "              __ ||: . ||: ,  |+++++++|.  . _||_   |                \n" +
+                "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              \n" +
+                "-~--~                   ~---__|,--~'                  ~~----_____-~'\n";
     }
 
     public String vocePerdeu() throws InterruptedException, IOException {
-        return  " __      ______   _____ ______   _____  ______ _____  _____  ______ _    _ \n" +
+        return " __      ______   _____ ______   _____  ______ _____  _____  ______ _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____| |  __ \\|  ____|  __ \\|  __ \\|  ____| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__    | |__) | |__  | |__) | |  | | |__  | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|   |  ___/|  __| |  _  /| |  | |  __| | |  | |\n" +
@@ -969,7 +972,7 @@ public class Game {
     }
 
     public String voceGanhou() throws InterruptedException, IOException {
-        return  " __      ______   _____ ______    _____          _   _ _    _  ____  _    _ \n" +
+        return " __      ______   _____ ______    _____          _   _ _    _  ____  _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____|  / ____|   /\\   | \\ | | |  | |/ __ \\| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__    | |  __   /  \\  |  \\| | |__| | |  | | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|   | | |_ | / /\\ \\ | . ` |  __  | |  | | |  | |\n" +
@@ -980,8 +983,8 @@ public class Game {
 
     }
 
-    public String voceAcertou() throws InterruptedException, IOException{
-        return  " __      ______   _____ ______            _____ ______ _____ _______ ____  _    _ \n" +
+    public String voceAcertou() throws InterruptedException, IOException {
+        return " __      ______   _____ ______            _____ ______ _____ _______ ____  _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____|     /\\   / ____|  ____|  __ \\__   __/ __ \\| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__       /  \\ | |    | |__  | |__) | | | | |  | | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|     / /\\ \\| |    |  __| |  _  /  | | | |  | | |  | |\n" +
@@ -992,13 +995,59 @@ public class Game {
 
     }
 
-    public String voceErrou() throws InterruptedException, IOException{
-        return( " __      ______   _____ ______   ______ _____  _____   ____  _    _ \n" +
+    public String voceErrou() throws InterruptedException, IOException {
+        return (" __      ______   _____ ______   ______ _____  _____   ____  _    _ \n" +
                 " \\ \\    / / __ \\ / ____|  ____| |  ____|  __ \\|  __ \\ / __ \\| |  | |\n" +
                 "  \\ \\  / / |  | | |    | |__    | |__  | |__) | |__) | |  | | |  | |\n" +
                 "   \\ \\/ /| |  | | |    |  __|   |  __| |  _  /|  _  /| |  | | |  | |\n" +
                 "    \\  / | |__| | |____| |____  | |____| | \\ \\| | \\ \\| |__| | |__| |\n" +
                 "");
 
+    }
+
+    public void musicaMenu() {
+        try {
+            URL resource = getClass().getClassLoader().getResource("music/menu.wav");
+            if (resource == null) {
+                return;
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+        }
+    }
+
+    public void musicaBatalha() {
+        try {
+            URL resource = getClass().getClassLoader().getResource("music/batalha.wav");
+            if (resource == null) {
+                System.err.println("Arquivo não encontrado!");
+                return;
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void musicaFinal() {
+        try {
+            URL resource = getClass().getClassLoader().getResource("/music/final.wav");
+            if (resource == null) {
+                System.err.println("Arquivo não encontrado!");
+                return;
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+
+        }
     }
 }

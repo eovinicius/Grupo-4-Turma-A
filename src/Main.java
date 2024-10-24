@@ -9,6 +9,5 @@ public class Main {
             Thread.sleep(3000);
             game.iniciar();
         }
-
     }
 }
