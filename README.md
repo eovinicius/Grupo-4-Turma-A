@@ -40,6 +40,57 @@ Durante o jogo, você será apresentado a várias situações e desafios. Sua ta
 
 ---
 
+### Colaboradores
+
+Um agradecimento especial a todas as pessoas que contribuíram para este projeto.
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/eovinicius.png" width="100px;" alt="Vinicius Oliveira"/><br>
+        <sub>
+          <b>Vinicius</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/GPatriota.png" width="100px;" alt="Gustavo Patriota"/><br>
+        <sub>
+          <b>Gustavo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/Lins06.png" width="100px;" alt="Gabriel Lins"/><br>
+        <sub>
+          <b>Gabriel</b>
+        </sub>
+      </a>
+    </td>
+      <td align="center">
+      <a href="#">
+        <img src="https://github.com/RenanMoraisz.png" width="100px;" alt="Renan Morais"/><br>
+        <sub>
+          <b>Renan</b>
+        </sub>
+      </a>
+    </td>
+      <td align="center">
+      <a href="#">
+        <img src="https://github.com/lucas-fb27.png" width="100px;" alt="Lucas Freitas"/><br>
+        <sub>
+          <b>Lucas</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
 ### Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma _issue_ ou enviar um _pull request_ com melhorias, novos desafios ou funcionalidades.
