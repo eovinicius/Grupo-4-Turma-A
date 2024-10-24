@@ -10,9 +10,9 @@ import javax.sound.sampled.Clip;
 
 public class Game {
     public void iniciar() throws Exception {
+        Clip clip = musicaMenu();
         while (true) {
             limpaConsole();
-            Clip clip = musicaMenu();
             System.out.println("Menu:");
             System.out.println("0 - Jogar");
             System.out.println("1 - Instruções");
@@ -225,38 +225,6 @@ public class Game {
                 "inclusive letras maiúsculas e minúsculas.\n" +
                 "Portanto, muita atenção ao responder uma questão dissertativa, você precisará responder exatamente " +
                 "como colocaria em um código em uma IDE.");
-
-        do {
-            print(
-                    "Agora que você já viu todas as instruções necessárias para jogar, você está pronto para iniciar este RPG.\n"
-                            +
-                            "O que você deseja fazer? Digite o número da opção desejada\n" +
-                            "1 - Jogar o RPG\n" +
-                            "2 - Voltar à interface inicial\n" +
-                            "3 - Rever as instruções\n" +
-                            "4 - Sair do jogo\n\n");
-
-            opcao = System.console().readLine();
-            switch (opcao) {
-                case "1":
-                    jogar();
-                    break;
-                case "2":
-                    iniciar();
-                    break;
-                case "3":
-                    instrucoes();
-                    break;
-                case "4":
-                    System.out.println("Jogo finalizado.");
-                    break;
-                default:
-                    print(
-                            "A opção que você digitou não estava dentre as possíveis para escolha, ao pressionar ENTER você será redirecionado para a tela com as opções.");
-                    break;
-            }
-        } while (!(opcao.equals("1") || opcao.equals("2") || opcao.equals("3") || opcao.equals("4")));
-
     }
 
     public boolean perguntasArray() throws InterruptedException, IOException {
