@@ -9,10 +9,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class Game {
-    public void iniciar() throws InterruptedException, IOException {
+    public void iniciar() throws Exception {
         while (true) {
             limpaConsole();
-            musicaMenu();
+            Clip clip = musicaMenu();
             System.out.println("Menu:");
             System.out.println("0 - Jogar");
             System.out.println("1 - Instruções");
@@ -23,6 +23,7 @@ public class Game {
             String opcao = System.console().readLine();
             switch (opcao) {
                 case "0":
+                    clip.close();
                     jogar();
                     break;
                 case "1":
@@ -41,12 +42,13 @@ public class Game {
         }
     }
 
-    public void jogar() throws InterruptedException, IOException, RuntimeException {
+    public void jogar() throws Exception {
         String nomeJogador;
         String armaEscolhida;
         int vida = 3;
         double vidaDragao = 3;
         double vidaGuardiao = 3;
+        musicaBatalha();
         casteloInicio();
         print(casteloInicio() + "\n\n" +
                 "O Reino de Algoritmópolis, uma terra outrora pacífica e conhecida por suas soluções elegantes e bem-estruturadas, foi abalada pelo caos. O Bug Supremo, entidade corrompida pelas falhas e ineficiências que surgem na lógica dos algoritmos, despertou das profundezas do código esquecido. Com seu exército de criaturas míticas, ele semeia o caos, invadindo o reino e causando erros fatais em sistemas críticos. O rei Syntaxius, mestre da lógica e soberano de Algoritmópolis, observava seu reino ruir aos poucos. As estruturas de dados que antes sustentavam o reino estavam comprometidas, e as funções essenciais do reino não eram mais confiáveis. Desesperado, Syntaxius convoca um herói para derrotar o Bug Supremo e restaurar a ordem em Algoritmópolis. Você, jovem programador, é a única esperança do reino.",
@@ -187,7 +189,7 @@ public class Game {
 
     }
 
-    public void instrucoes() throws InterruptedException, IOException {
+    public void instrucoes() throws Exception {
         String opcao = "";
         limpaConsole();
 
@@ -1005,49 +1007,36 @@ public class Game {
 
     }
 
-    public void musicaMenu() {
-        try {
-            URL resource = getClass().getClassLoader().getResource("music/menu.wav");
-            if (resource == null) {
-                return;
-            }
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception e) {
-        }
+    public Clip musicaMenu() throws Exception {
+        URL resource = getClass().getClassLoader().getResource("music/menu.wav");
+        if (resource == null)
+            throw new Exception();
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+        return clip;
     }
 
-    public void musicaBatalha() {
-        try {
-            URL resource = getClass().getClassLoader().getResource("music/batalha.wav");
-            if (resource == null) {
-                System.err.println("Arquivo não encontrado!");
-                return;
-            }
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception e) {
-
-        }
+    public Clip musicaBatalha() throws Exception {
+        URL resource = getClass().getClassLoader().getResource("music/music1.wav");
+        if (resource == null)
+            throw new Exception();
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+        return clip;
     }
 
-    public void musicaFinal() {
-        try {
-            URL resource = getClass().getClassLoader().getResource("/music/final.wav");
-            if (resource == null) {
-                System.err.println("Arquivo não encontrado!");
-                return;
-            }
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception e) {
-
-        }
+    public Clip musicaFinal() throws Exception {
+        URL resource = getClass().getClassLoader().getResource("/music/final.wav");
+        if (resource == null)
+            throw new Exception();
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(resource);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+        return clip;
     }
 }
